@@ -136,13 +136,26 @@
 
   </style>
 </head>
-<body>
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function addToCart(name, price) {
+  cart.push({ name, price });
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert(name + " added to cart!");
+}
+
+function viewCart() {
+  alert(JSON.stringify(cart, null, 2));
+}
+</script>
+  <body>
 
   <!-- SIDEBAR -->
   <div class="sidebar">
     <h3>MY ACCOUNT</h3>
     <a href="#">Profile</a>
-    <a href="#">Cart</a>
+    <a href="#" onclick="viewCart()">Cart</a>
     <a href="#">Wishlist</a>
     <a href="#">Purchases</a>
     <a href="#">Wallet</a>
@@ -177,11 +190,13 @@
 
         <!-- PRODUCT 1 -->
         <div class="card">
-          <img src="alpha.jpg">
+         <a href="product-1.html">
+  <img src="alpha.jpg">
+</a>
           <div class="card-content">
             <h3>Project Alpha</h3>
             <p>Advanced emergency response vehicle pack.</p>
-            <button class="buy-btn">Buy Now</button>
+           <button class="buy-btn" onclick="addToCart('Project Alpha', 20)">Buy Now</button>
           </div>
         </div>
 
