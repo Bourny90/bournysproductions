@@ -2,208 +2,187 @@
 <html>
 <head>
   <title>Bournys Productions</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
-
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-
     body {
-      font-family: 'Inter', sans-serif;
-      background:#0f1117;
-      color:white;
-      display:flex;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f0f12;
+      color: white;
+      display: flex;
     }
 
     /* SIDEBAR */
     .sidebar {
-      width:180px;
-      height:100vh;
-      background:#151822;
-      padding:20px 15px;
-      position:fixed;
-      overflow-y:auto;
+      width: 200px;
+      background: #141418;
+      height: 100vh;
+      padding-top: 20px;
+      position: fixed;
     }
 
-    .logo {
-      font-weight:700;
-      font-size:16px;
-      margin-bottom:25px;
-      cursor:pointer;
-      display:block;
-      color:white;
-      text-decoration:none;
-    }
-
-    .sidebar h4 {
-      font-size:12px;
-      opacity:0.6;
-      margin:20px 0 10px;
+    .sidebar h3 {
+      padding-left: 20px;
+      font-size: 14px;
+      color: #888;
     }
 
     .sidebar a {
-      display:block;
-      color:#aaa;
-      text-decoration:none;
-      padding:6px 0;
-      font-size:14px;
-      transition:.2s;
+      display: block;
+      padding: 10px 20px;
+      color: #ccc;
+      text-decoration: none;
+      font-size: 14px;
+      transition: 0.2s;
     }
 
     .sidebar a:hover {
-      color:white;
-      padding-left:4px;
+      background: #1f1f26;
+      color: white;
     }
 
-    /* MAIN */
+    /* MAIN CONTENT */
     .main {
-      margin-left:180px;
-      width:100%;
+      margin-left: 200px;
+      width: 100%;
     }
 
-    /* HERO */
+    /* TOP BAR */
+    .topbar {
+      padding: 20px;
+      background: #111;
+    }
+
+    .home-btn {
+      font-size: 20px;
+      font-weight: bold;
+      text-decoration: none;
+      color: white;
+    }
+
+    .home-btn:hover {
+      color: #ff2a2a;
+    }
+
+    /* HERO SECTION */
     .hero {
-      height:250px;
-      background:url('BP LOGO.jpeg') center/cover no-repeat;
-      position:relative;
-      display:flex;
-      align-items:center;
-      padding:40px;
-    }
-
-    .hero::after {
-      content:"";
-      position:absolute;
-      inset:0;
-      background:rgba(0,0,0,.65);
-    }
-
-    .hero-content {
-      position:relative;
-      max-width:600px;
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(180deg, #1b1b22, #111);
     }
 
     .hero h1 {
-      font-size:32px;
-      margin-bottom:10px;
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: #aaa;
     }
 
     /* PRODUCTS */
     .section {
-      padding:40px;
+      padding: 40px;
     }
 
-    .cards {
-      display:grid;
-      grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
-      gap:20px;
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
     }
 
     .card {
-      background:#151822;
-      padding:15px;
-      border-radius:10px;
-      transition:.2s;
-      cursor:pointer;
-      text-decoration:none;
-      color:white;
+      background: #18181f;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: 0.2s;
     }
 
     .card:hover {
-      background:#1c1f2a;
-      transform:translateY(-4px);
+      transform: scale(1.03);
+      background: #1f1f26;
     }
 
     .card img {
-      width:100%;
-      border-radius:8px;
-      margin-bottom:10px;
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
     }
 
-    .price {
-      margin-top:6px;
-      font-weight:600;
-      color:#6c8cff;
+    .card-content {
+      padding: 15px;
     }
 
     .buy-btn {
-      display:inline-block;
-      margin-top:10px;
-      padding:6px 12px;
-      background:#5865f2;
-      border-radius:6px;
-      font-size:13px;
+      background: #ff2a2a;
+      border: none;
+      padding: 8px 12px;
+      color: white;
+      cursor: pointer;
+      border-radius: 4px;
+      margin-top: 10px;
     }
 
     .buy-btn:hover {
-      background:#4752c4;
+      background: #ff4d4d;
     }
+
   </style>
 </head>
-
 <body>
 
   <!-- SIDEBAR -->
   <div class="sidebar">
-
-    <a href="https://bournysproductions.com" class="logo">
-      BOURNYS PRODUCTIONS
-    </a>
-
-    <h4>MY ACCOUNT</h4>
+    <h3>MY ACCOUNT</h3>
     <a href="#">Profile</a>
     <a href="#">Cart</a>
     <a href="#">Wishlist</a>
     <a href="#">Purchases</a>
     <a href="#">Wallet</a>
-    <a href="#">Notifications</a>
-    <a href="#">Store Messages</a>
-    <a href="#">Affiliate</a>
 
-    <h4>EXPLORE</h4>
-    <a href="#products">All Products</a>
-    <a href="#">Categories</a>
-
+    <h3>EXPLORE</h3>
+    <a href="#">Marketplace</a>
+    <a href="#">Roblox Dev Platform</a>
+    <a href="#">Emergency Vehicles</a>
   </div>
 
-  <!-- MAIN -->
+  <!-- MAIN CONTENT -->
   <div class="main">
 
-    <div class="hero">
-      <div class="hero-content">
-        <h1>Emergency Vehicle Marketplace</h1>
-        <p>Premium Roblox emergency assets built for realism and performance.</p>
-      </div>
+    <div class="topbar">
+      <a class="home-btn" href="https://bournysproductions.com">
+        BOURNYS PRODUCTIONS
+      </a>
     </div>
 
-    <div class="section" id="products">
-      <h2 style="margin-bottom:20px;">Featured Products</h2>
+    <div class="hero">
+      <h1>Bournys Productions</h1>
+      <p>Premium Roblox Emergency Vehicle Development</p>
+    </div>
 
-      <div class="cards">
+    <div class="section">
+      <h2>🔥 Best Sellers</h2>
 
-        <a href="ford-product.html" class="card">
-          <img src="ford.jpg">
-          <h3>UK Ford Transit 2024</h3>
-          <p>High-detail emergency vehicle.</p>
-          <div class="price">£2.50</div>
-          <div class="buy-btn">Buy Now</div>
-        </a>
+      <div class="products">
 
-        <a href="bmw-product.html" class="card">
-          <img src="bmw.jpg">
-          <h3>BMW Police X5</h3>
-          <p>Fully scripted patrol vehicle.</p>
-          <div class="price">£4.50</div>
-          <div class="buy-btn">Buy Now</div>
-        </a>
+        <!-- PRODUCT 1 -->
+        <div class="card">
+          <img src="alpha.jpg">
+          <div class="card-content">
+            <h3>Project Alpha</h3>
+            <p>Advanced emergency response vehicle pack.</p>
+            <button class="buy-btn">Buy Now</button>
+          </div>
+        </div>
 
-        <a href="mercedes-product.html" class="card">
-          <img src="mercedes.jpg">
-          <h3>Mercedes Atego ERU</h3>
-          <p>Emergency response unit.</p>
-          <div class="price">£1.99</div>
-          <div class="buy-btn">Buy Now</div>
-        </a>
+        <!-- PRODUCT 2 -->
+        <div class="card">
+          <img src="LNAA Car.png">
+          <div class="card-content">
+            <h3>Air Ambulance Pack</h3>
+            <p>High-detail air ambulance system.</p>
+            <button class="buy-btn">Buy Now</button>
+          </div>
+        </div>
 
       </div>
     </div>
