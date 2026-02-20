@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact Us - Bournys Productions</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f0f12;
+      color: white;
+      display: flex;
+    }
+
+    .sidebar {
+      width: 200px;
+      background: #141418;
+      height: 100vh;
+      padding-top: 20px;
+      position: fixed;
+    }
+
+    .sidebar h3 {
+      padding-left: 20px;
+      font-size: 14px;
+      color: #888;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 10px 20px;
+      color: #ccc;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .sidebar a:hover {
+      background: #1f1f26;
+      color: white;
+    }
+
+    .main {
+      margin-left: 200px;
+      padding: 40px;
+      width: 100%;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      background: #18181f;
+      border: 1px solid #333;
+      color: white;
+      border-radius: 5px;
+    }
+
+    button {
+      background: #ff2a2a;
+      border: none;
+      padding: 10px 15px;
+      color: white;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    button:hover {
+      background: #ff4d4d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <h3>MY ACCOUNT</h3>
+    <a href="index.html">Home</a>
+    <a href="#">Profile</a>
+    <a href="#">Cart</a>
+
+    <h3>EXPLORE</h3>
+    <a href="contact-us.html">Contact Us</a>
+  </div>
+
+  <div class="main">
+    <h1>Contact Us</h1>
+    <p>Have questions about our products? Send us a message.</p>
+
+    <form>
+      <input type="text" placeholder="Your Name">
+      <input type="email" placeholder="Your Email">
+      <textarea rows="5" placeholder="Your Message"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+
+  </div>
+
+</body>
+</html>
