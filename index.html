@@ -3,40 +3,74 @@
 <head>
   <title>Bournys Productions</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: black;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(to bottom, #000000, #111111);
       color: white;
       text-align: center;
-      padding: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
     }
+
+    .container {
+      max-width: 700px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
     h1 {
-      font-size: 3em;
-      letter-spacing: 2px;
+      font-size: 3.5em;
+      font-weight: 800;
+      letter-spacing: 4px;
+      margin-bottom: 20px;
     }
+
     p {
+      font-weight: 300;
       font-size: 1.2em;
       opacity: 0.8;
+      line-height: 1.6;
     }
+
     .button {
       display: inline-block;
-      margin-top: 30px;
-      padding: 15px 30px;
+      margin-top: 40px;
+      padding: 15px 35px;
       background: white;
       color: black;
       text-decoration: none;
-      font-weight: bold;
-      border-radius: 4px;
+      font-weight: 600;
+      border-radius: 50px;
+      transition: 0.3s ease;
     }
+
     .button:hover {
-      background: #ddd;
+      background: #ffcc00;
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
+
 <body>
-  <h1>Bournys Productions</h1>
-  <a class="button" href="mailto:your@email.com">Contact Us</a>
+  <div class="container">
+    <h1>BOURNYS PRODUCTIONS</h1>
+    <p>
+      Cinematic storytelling. Creative direction. Visual experiences that leave an impact.
+    </p>
+    <a class="button" href="mailto:your@email.com">Contact Us</a>
+  </div>
 </body>
 </html>
