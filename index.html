@@ -3,74 +3,210 @@
 <head>
   <title>Bournys Productions</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
 
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      background: linear-gradient(to bottom, #000000, #111111);
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0f1117;
       color: white;
-      text-align: center;
       display: flex;
-      justify-content: center;
-      align-items: center;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 230px;
       height: 100vh;
-      overflow: hidden;
+      background: #151822;
+      padding: 30px 20px;
+      position: fixed;
     }
 
-    .container {
-      max-width: 700px;
-      animation: fadeIn 2s ease-in-out;
+    .sidebar h2 {
+      margin-bottom: 40px;
+      font-weight: 700;
+      letter-spacing: 2px;
     }
 
-    h1 {
-      font-size: 3.5em;
-      font-weight: 800;
-      letter-spacing: 4px;
+    .sidebar a {
+      display: block;
+      color: #aaa;
+      text-decoration: none;
+      margin: 15px 0;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+      color: white;
+      padding-left: 5px;
+    }
+
+    /* Main */
+    .main {
+      margin-left: 230px;
+      width: 100%;
+    }
+
+    /* Topbar */
+    .topbar {
+      height: 70px;
+      background: #151822;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 30px;
+      border-bottom: 1px solid #222;
+    }
+
+    .topbar input {
+      padding: 10px 15px;
+      width: 300px;
+      border-radius: 8px;
+      border: none;
+      background: #1c1f2a;
+      color: white;
+    }
+
+    /* Hero */
+    .hero {
+      height: 350px;
+      background: url('background.jpg') center/cover no-repeat;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 40px;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 600px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      opacity: 0.8;
       margin-bottom: 20px;
     }
 
-    p {
-      font-weight: 300;
-      font-size: 1.2em;
-      opacity: 0.8;
-      line-height: 1.6;
-    }
-
-    .button {
+    .btn {
       display: inline-block;
-      margin-top: 40px;
-      padding: 15px 35px;
-      background: white;
-      color: black;
+      padding: 10px 20px;
+      background: #5865f2;
+      border-radius: 6px;
       text-decoration: none;
-      font-weight: 600;
-      border-radius: 50px;
-      transition: 0.3s ease;
+      color: white;
+      font-weight: 500;
+      transition: 0.3s;
     }
 
-    .button:hover {
-      background: #ffcc00;
-      transform: scale(1.05);
+    .btn:hover {
+      background: #4752c4;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    /* Cards */
+    .section {
+      padding: 40px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #151822;
+      padding: 20px;
+      border-radius: 12px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      background: #1c1f2a;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 14px;
+      opacity: 0.7;
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <h1>BOURNYS PRODUCTIONS</h1>
-    <p>
-      Cinematic storytelling. Creative direction. Visual experiences that leave an impact.
-    </p>
-    <a class="button" href="mailto:your@email.com">Contact Us</a>
+
+  <div class="sidebar">
+    <h2>BOURNYS</h2>
+    <a href="#">Home</a>
+    <a href="#">Portfolio</a>
+    <a href="#">Projects</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
   </div>
+
+  <div class="main">
+    <div class="topbar">
+      <input type="text" placeholder="Search projects...">
+      <div>Dashboard</div>
+    </div>
+
+    <div class="hero">
+      <div class="hero-content">
+        <h1>Elevate Your Vision</h1>
+        <p>Creative media production. Cinematic storytelling. Digital experiences built to stand out.</p>
+        <a href="#" class="btn">View Work</a>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 style="margin-bottom:20px;">Featured Projects</h2>
+
+      <div class="cards">
+        <div class="card">
+          <h3>Project Alpha</h3>
+          <p>Short cinematic film production.</p>
+        </div>
+
+        <div class="card">
+          <h3>Project Beta</h3>
+          <p>Commercial video campaign.</p>
+        </div>
+
+        <div class="card">
+          <h3>Project Gamma</h3>
+          <p>Music video production.</p>
+        </div>
+
+        <div class="card">
+          <h3>Project Delta</h3>
+          <p>Brand visual identity project.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
 </body>
 </html>
