@@ -6,203 +6,205 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin:0; padding:0; box-sizing:border-box; }
 
     body {
       font-family: 'Inter', sans-serif;
-      background: #0f1117;
-      color: white;
-      display: flex;
+      background:#0f1117;
+      color:white;
+      display:flex;
     }
 
-    /* Sidebar */
+    /* SIDEBAR */
     .sidebar {
-      width: 230px;
-      height: 100vh;
-      background: #151822;
-      padding: 30px 20px;
-      position: fixed;
+      width:180px;
+      height:100vh;
+      background:#151822;
+      padding:20px 15px;
+      position:fixed;
+      overflow-y:auto;
     }
 
-    .sidebar h2 {
-      margin-bottom: 40px;
-      font-weight: 700;
-      letter-spacing: 2px;
+    .logo {
+      font-weight:700;
+      font-size:16px;
+      margin-bottom:25px;
+      cursor:pointer;
+      display:block;
+      color:white;
+      text-decoration:none;
+    }
+
+    .sidebar h4 {
+      font-size:12px;
+      opacity:0.6;
+      margin:20px 0 10px;
     }
 
     .sidebar a {
-      display: block;
-      color: #aaa;
-      text-decoration: none;
-      margin: 15px 0;
-      font-size: 15px;
-      transition: 0.3s;
+      display:block;
+      color:#aaa;
+      text-decoration:none;
+      padding:6px 0;
+      font-size:14px;
+      transition:.2s;
     }
 
     .sidebar a:hover {
-      color: white;
-      padding-left: 5px;
+      color:white;
+      padding-left:4px;
     }
 
-    /* Main */
+    /* MAIN */
     .main {
-      margin-left: 230px;
-      width: 100%;
+      margin-left:180px;
+      width:100%;
     }
 
-    /* Topbar */
-    .topbar {
-      height: 70px;
-      background: #151822;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 30px;
-      border-bottom: 1px solid #222;
-    }
-
-    .topbar input {
-      padding: 10px 15px;
-      width: 300px;
-      border-radius: 8px;
-      border: none;
-      background: #1c1f2a;
-      color: white;
-    }
-
-    /* Hero */
+    /* HERO */
     .hero {
-      height: 350px;
-      background: url('background.jpg') center/cover no-repeat;
-      position: relative;
-      display: flex;
-      align-items: center;
-      padding: 40px;
+      height:250px;
+      background:url('BP LOGO.jpeg') center/cover no-repeat;
+      position:relative;
+      display:flex;
+      align-items:center;
+      padding:40px;
     }
 
     .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.6);
+      content:"";
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,.65);
     }
 
     .hero-content {
-      position: relative;
-      max-width: 600px;
+      position:relative;
+      max-width:600px;
     }
 
     .hero h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
+      font-size:32px;
+      margin-bottom:10px;
     }
 
-    .hero p {
-      opacity: 0.8;
-      margin-bottom: 20px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 10px 20px;
-      background: #5865f2;
-      border-radius: 6px;
-      text-decoration: none;
-      color: white;
-      font-weight: 500;
-      transition: 0.3s;
-    }
-
-    .btn:hover {
-      background: #4752c4;
-    }
-
-    /* Cards */
+    /* PRODUCTS */
     .section {
-      padding: 40px;
+      padding:40px;
     }
 
     .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 20px;
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+      gap:20px;
     }
 
     .card {
-      background: #151822;
-      padding: 20px;
-      border-radius: 12px;
-      transition: 0.3s;
+      background:#151822;
+      padding:15px;
+      border-radius:10px;
+      transition:.2s;
+      cursor:pointer;
+      text-decoration:none;
+      color:white;
     }
 
     .card:hover {
-      transform: translateY(-5px);
-      background: #1c1f2a;
+      background:#1c1f2a;
+      transform:translateY(-4px);
     }
 
-    .card h3 {
-      margin-bottom: 10px;
+    .card img {
+      width:100%;
+      border-radius:8px;
+      margin-bottom:10px;
     }
 
-    .card p {
-      font-size: 14px;
-      opacity: 0.7;
+    .price {
+      margin-top:6px;
+      font-weight:600;
+      color:#6c8cff;
+    }
+
+    .buy-btn {
+      display:inline-block;
+      margin-top:10px;
+      padding:6px 12px;
+      background:#5865f2;
+      border-radius:6px;
+      font-size:13px;
+    }
+
+    .buy-btn:hover {
+      background:#4752c4;
     }
   </style>
 </head>
 
 <body>
 
+  <!-- SIDEBAR -->
   <div class="sidebar">
-    <h2>BOURNYS</h2>
-    <a href="#">Home</a>
-    <a href="#">Portfolio</a>
-    <a href="#">Projects</a>
-    <a href="#">Services</a>
-    <a href="#">Contact</a>
+
+    <a href="https://bournysproductions.com" class="logo">
+      BOURNYS PRODUCTIONS
+    </a>
+
+    <h4>MY ACCOUNT</h4>
+    <a href="#">Profile</a>
+    <a href="#">Cart</a>
+    <a href="#">Wishlist</a>
+    <a href="#">Purchases</a>
+    <a href="#">Wallet</a>
+    <a href="#">Notifications</a>
+    <a href="#">Store Messages</a>
+    <a href="#">Affiliate</a>
+
+    <h4>EXPLORE</h4>
+    <a href="#products">All Products</a>
+    <a href="#">Categories</a>
+
   </div>
 
+  <!-- MAIN -->
   <div class="main">
-    <div class="topbar">
-      <input type="text" placeholder="Search projects...">
-      <div>Dashboard</div>
-    </div>
 
     <div class="hero">
       <div class="hero-content">
-        <h1>Elevate Your Vision</h1>
-        <p>Creative media production. Cinematic storytelling. Digital experiences built to stand out.</p>
-        <a href="#" class="btn">View Work</a>
+        <h1>Emergency Vehicle Marketplace</h1>
+        <p>Premium Roblox emergency assets built for realism and performance.</p>
       </div>
     </div>
 
-    <div class="section">
-      <h2 style="margin-bottom:20px;">Featured Projects</h2>
+    <div class="section" id="products">
+      <h2 style="margin-bottom:20px;">Featured Products</h2>
 
       <div class="cards">
-        <div class="card">
-          <h3>Project Alpha</h3>
-          <p>Short cinematic film production.</p>
-        </div>
 
-        <div class="card">
-          <h3>Project Beta</h3>
-          <p>Commercial video campaign.</p>
-        </div>
+        <a href="ford-product.html" class="card">
+          <img src="ford.jpg">
+          <h3>UK Ford Transit 2024</h3>
+          <p>High-detail emergency vehicle.</p>
+          <div class="price">£2.50</div>
+          <div class="buy-btn">Buy Now</div>
+        </a>
 
-        <div class="card">
-          <h3>Project Gamma</h3>
-          <p>Music video production.</p>
-        </div>
+        <a href="bmw-product.html" class="card">
+          <img src="bmw.jpg">
+          <h3>BMW Police X5</h3>
+          <p>Fully scripted patrol vehicle.</p>
+          <div class="price">£4.50</div>
+          <div class="buy-btn">Buy Now</div>
+        </a>
 
-        <div class="card">
-          <h3>Project Delta</h3>
-          <p>Brand visual identity project.</p>
-        </div>
+        <a href="mercedes-product.html" class="card">
+          <img src="mercedes.jpg">
+          <h3>Mercedes Atego ERU</h3>
+          <p>Emergency response unit.</p>
+          <div class="price">£1.99</div>
+          <div class="buy-btn">Buy Now</div>
+        </a>
+
       </div>
     </div>
 
