@@ -145,8 +145,34 @@ function addToCart(name, price) {
   alert(name + " added to cart!");
 }
 
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function addToCart(name, price) {
+  cart.push({ name, price });
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert(name + " added to cart!");
+}
+
 function viewCart() {
-  alert(JSON.stringify(cart, null, 2));
+  if (cart.length === 0) {
+    alert("Your cart is empty.");
+    return;
+  }
+
+  let message = "Your Cart:\n\n";
+  let total = 0;
+
+  cart.forEach(item => {
+    message += item.name + " - £" + item.price + "\n";
+    total += item.price;
+  });
+
+  message += "\nTotal: £" + total;
+
+  alert(message);
+}
+</script>
 }
 </script>
   <body>
