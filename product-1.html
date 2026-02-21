@@ -1,3 +1,250 @@
+ <!DOCTYPE html>
+<html>
+<head>
+  <title>Bournys Productions</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f0f12;
+      color: white;
+      display: flex;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      width: 200px;
+      background: #141418;
+      height: 100vh;
+      padding-top: 20px;
+      position: fixed;
+    }
+
+    .sidebar h3 {
+      padding-left: 20px;
+      font-size: 14px;
+      color: #888;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 10px 20px;
+      color: #ccc;
+      text-decoration: none;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+    .sidebar a:hover {
+      background: #1f1f26;
+      color: white;
+    }
+
+    /* MAIN CONTENT */
+    .main {
+      margin-left: 200px;
+      width: 100%;
+    }
+
+    /* TOP BAR */
+    .topbar {
+      padding: 20px;
+      background: #111;
+    }
+
+    .home-btn {
+      font-size: 20px;
+      font-weight: bold;
+      text-decoration: none;
+      color: white;
+    }
+
+    .home-btn:hover {
+      color: #ff2a2a;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(180deg, #1b1b22, #111);
+    }
+
+    .hero h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: #aaa;
+    }
+
+    /* PRODUCTS */
+    .section {
+      padding: 40px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+.card {
+  background: #18181f;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: 0.3s;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px rgba(255, 42, 42, 0.4);
+}
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+      background: #1f1f26;
+    }
+
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 15px;
+    }
+
+    .buy-btn {
+      background: #ff2a2a;
+      border: none;
+      padding: 8px 12px;
+      color: white;
+      cursor: pointer;
+      border-radius: 4px;
+      margin-top: 10px;
+    }
+
+    .buy-btn:hover {
+      background: #ff4d4d;
+    }
+
+  </style>
+</head>
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function addToCart(name, price) {
+  cart.push({ name, price });
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert(name + " added to cart!");
+}
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function addToCart(name, price) {
+  cart.push({ name, price });
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert(name + " added to cart!");
+}
+
+function viewCart() {
+  if (cart.length === 0) {
+    alert("Your cart is empty.");
+    return;
+  }
+
+  let message = "Your Cart:\n\n";
+  let total = 0;
+
+  cart.forEach(item => {
+    message += item.name + " - £" + item.price + "\n";
+    total += item.price;
+  });
+
+  message += "\nTotal: £" + total;
+
+  alert(message);
+}
+</script>
+}
+</script>
+  <body>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <h3>MY ACCOUNT</h3>
+    <a href="#">Profile</a>
+    <a href="#" onclick="viewCart()">Cart</a>
+    <a href="#">Wishlist</a>
+    <a href="#">Purchases</a>
+    <a href="#">Wallet</a>
+
+    <h3>EXPLORE</h3>
+    <a href="#">Marketplace</a>
+    <a href="#">Roblox Dev Platform</a>
+    <a href="#">Emergency Vehicles</a>
+
+<h3>SUPPORT</h3>
+<a href="contact-us.html">Contact Us</a>
+<a href="https://discord.gg/gVQMjcGNEs" class="text-button-sidebar">
+  Main Server
+</a>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="main">
+    <div class="topbar">
+      <a class="home-btn" href="https://bournysproductions.com">
+        BOURNYS PRODUCTIONS
+      </a>
+    </div>
+
+    <div class="hero">
+      <h1>Bournys Productions</h1>
+      <p>Premium Roblox Emergency Vehicle Development</p>
+    </div>
+
+    <div class="section">
+      <h2>🔥 Best Sellers</h2>
+
+      <div class="products">
+
+        <!-- PRODUCT 1 -->
+        <div class="card">
+         <a href="product-1.html">
+  <img src="alpha.jpg">
+</a>
+          <div class="card-content">
+            <h3>Project Alpha</h3>
+            <p>Advanced emergency response vehicle pack.</p>
+           <button class="buy-btn" onclick="addToCart('Project Alpha', 20)">Buy Now</button>
+          </div>
+        </div>
+
+        <!-- PRODUCT 2 -->
+        <div class="card">
+          <img src="LNAA Car.png">
+          <div class="card-content">
+            <h3>Air Ambulance Pack</h3>
+            <p>High-detail air ambulance system.</p>
+            <button class="buy-btn">Buy Now</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
+
 <h1>Product 1</h1>
 <p>Insert a very good description of this product.</p>
 
