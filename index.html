@@ -8,7 +8,6 @@
     :root {
       --bg: #0f0f12;
       --glass: rgba(23,23,28,0.75);
-      --panel: #17171c;
       --accent: #ff2a2a;
       --accent2: #ff0000;
       --text: #ffffff;
@@ -19,6 +18,10 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -27,6 +30,23 @@
       display: flex;
       min-height: 100vh;
       overflow-x: hidden;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+
+    body.fade-in {
+      opacity: 1;
+    }
+
+    body.fade-out {
+      opacity: 0;
+    }
+
+    /* PARTICLE CANVAS */
+    #particles {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
     }
 
     /* SIDEBAR */
@@ -59,7 +79,6 @@
       transition: 0.3s ease;
     }
 
-    /* Animated active indicator */
     .sidebar a.active {
       color: var(--text);
     }
@@ -73,15 +92,8 @@
       width: 4px;
       background: linear-gradient(180deg, var(--accent), var(--accent2));
       border-radius: 0 4px 4px 0;
-      animation: slideIn 0.3s ease;
     }
 
-    @keyframes slideIn {
-      from { height: 0; }
-      to { height: 100%; }
-    }
-
-    /* Gradient animated hover glow */
     .sidebar a:hover {
       color: var(--text);
       background: linear-gradient(90deg, rgba(255,42,42,0.15), transparent);
@@ -94,15 +106,14 @@
       flex-direction: column;
     }
 
-    /* TOPBAR */
     .topbar {
       padding: 20px;
       background: rgba(20,20,25,0.85);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(255,255,255,0.05);
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
     }
 
     .home-btn {
@@ -110,7 +121,6 @@
       font-weight: bold;
       text-decoration: none;
       color: var(--text);
-      letter-spacing: 1px;
       transition: 0.3s;
     }
 
@@ -119,14 +129,6 @@
       text-shadow: 0 0 12px rgba(255,42,42,0.6);
     }
 
-    .menu-toggle {
-      display: none;
-      font-size: 26px;
-      cursor: pointer;
-      color: var(--text);
-    }
-
-    /* HERO */
     .hero {
       text-align: center;
       padding: 80px 20px;
@@ -139,7 +141,6 @@
       letter-spacing: 2px;
     }
 
-    /* Glass Panels */
     .community-card,
     .card {
       background: var(--glass);
@@ -161,29 +162,11 @@
       transform: translateY(-6px);
     }
 
-    .community-card .tag {
-      font-size: 12px;
-      color: var(--accent);
-      letter-spacing: 1px;
-    }
-
     .community-card p,
     .card p {
       color: var(--text-dim);
     }
 
-    .community-card a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    .community-card a:hover {
-      text-shadow: 0 0 10px rgba(255,42,42,0.6);
-    }
-
-    /* PRODUCTS */
     .section {
       padding: 40px;
     }
@@ -205,7 +188,6 @@
       padding: 20px;
     }
 
-    /* Micro-animations for buttons */
     .buy-btn {
       background: linear-gradient(90deg, var(--accent), var(--accent2));
       border: none;
@@ -214,8 +196,6 @@
       border-radius: 8px;
       cursor: pointer;
       transition: all 0.25s ease;
-      position: relative;
-      overflow: hidden;
     }
 
     .buy-btn:hover {
@@ -227,60 +207,14 @@
       transform: scale(0.95);
     }
 
-    /* Overlay */
-    .overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.6);
-      opacity: 0;
-      visibility: hidden;
-      transition: 0.3s;
-    }
-
-    .overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    /* MOBILE */
-    @media (max-width: 768px) {
-
-      .menu-toggle {
-        display: block;
-      }
-
-      .sidebar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
-        transform: translateX(-100%);
-        z-index: 1000;
-      }
-
-      .sidebar.active {
-        transform: translateX(0);
-      }
-
-      body {
-        flex-direction: column;
-      }
-
-      .community-card,
-      .section {
-        margin: 20px;
-        padding: 20px;
-      }
-    }
-
   </style>
 </head>
 
 <body>
 
-<div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+<canvas id="particles"></canvas>
 
-<div class="sidebar" id="sidebar">
+<div class="sidebar">
   <h3>PRODUCTS</h3>
   <a href="#" class="active">All Products</a>
   <a href="#">Police Vehicles</a>
@@ -292,7 +226,6 @@
 <div class="main">
 
   <div class="topbar">
-    <span class="menu-toggle" onclick="toggleMenu()">☰</span>
     <a class="home-btn" href="#">BOURNYS PRODUCTIONS</a>
   </div>
 
@@ -301,17 +234,13 @@
   </div>
 
   <div class="community-card">
-    <span class="tag">COMMUNITY</span>
     <h2>Join the Discord Server</h2>
     <p>Chat, get support & stay updated…</p>
-    <a href="#">JOIN →</a>
   </div>
 
   <div class="section">
     <h2>🔥 Featured</h2>
-
     <div class="products">
-
       <div class="card">
         <img src="alpha.jpg">
         <div class="card-content">
@@ -320,34 +249,85 @@
           <button class="buy-btn">Buy Now</button>
         </div>
       </div>
-
-      <div class="card">
-        <img src="LNAA Car.png">
-        <div class="card-content">
-          <h3>Air Ambulance Pack</h3>
-          <p>High-detail air ambulance system.</p>
-          <button class="buy-btn">Buy Now</button>
-        </div>
-      </div>
-
     </div>
   </div>
 
 </div>
 
 <script>
-  function toggleMenu() {
-    document.getElementById("sidebar").classList.toggle("active");
-    document.getElementById("overlay").classList.toggle("active");
-  }
+  /* PAGE FADE IN */
+  window.addEventListener("load", () => {
+    document.body.classList.add("fade-in");
+  });
 
-  // Active link switching animation
-  document.querySelectorAll(".sidebar a").forEach(link => {
-    link.addEventListener("click", function() {
-      document.querySelectorAll(".sidebar a").forEach(l => l.classList.remove("active"));
-      this.classList.add("active");
+  /* PAGE FADE OUT ON LINK CLICK */
+  document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function(e) {
+      if (this.getAttribute("href") !== "#" && !this.getAttribute("href").startsWith("#")) {
+        e.preventDefault();
+        document.body.classList.remove("fade-in");
+        document.body.classList.add("fade-out");
+        setTimeout(() => {
+          window.location = this.href;
+        }, 500);
+      }
     });
   });
+
+  /* PARTICLE SYSTEM */
+  const canvas = document.getElementById("particles");
+  const ctx = canvas.getContext("2d");
+
+  let particlesArray = [];
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+
+  class Particle {
+    constructor() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.size = Math.random() * 2 + 1;
+      this.speedY = Math.random() * 0.5 + 0.2;
+    }
+    update() {
+      this.y -= this.speedY;
+      if (this.y < 0) {
+        this.y = canvas.height;
+        this.x = Math.random() * canvas.width;
+      }
+    }
+    draw() {
+      ctx.fillStyle = "rgba(255,42,42,0.6)";
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  function initParticles() {
+    particlesArray = [];
+    for (let i = 0; i < 80; i++) {
+      particlesArray.push(new Particle());
+    }
+  }
+
+  function animateParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particlesArray.forEach(p => {
+      p.update();
+      p.draw();
+    });
+    requestAnimationFrame(animateParticles);
+  }
+
+  initParticles();
+  animateParticles();
 </script>
 
 </body>
