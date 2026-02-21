@@ -13,13 +13,28 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Generate version from commit count
-        id: version
+      - name: Generate version
         run: echo "VERSION=1.0.$(git rev-list --count HEAD)" >> $GITHUB_ENV
 
-      - name: Send update to Discord
+      - name: Send fancy embed to Discord
         run: |
+          TIME=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
+
           curl -H "Content-Type: application/json" \
           -X POST \
-          -d "{\"content\": \"🚀 Website updated! Version: v${{ env.VERSION }}\"}" \
+          -d "{
+            \"embeds\": [{
+              \"title\": \"🚀 Website Updated\",
+              \"color\": 15158332,
+              \"fields\": [
+                {\"name\": \"Version\", \"value\": \"v${{ env.VERSION }}\", \"inline\": true},
+                {\"name\": \"Pushed By\", \"value\": \"${{ github.actor }}\", \"inline\": true},
+                {\"name\": \"Commit Message\", \"value\": \"${{ github.event.head_commit.message }}\", \"inline\": false},
+                {\"name\": \"Published At\", \"value\": \"$TIME\", \"inline\": false}
+              ],
+              \"footer\": {
+                \"text\": \"Auto deployment logger\"
+              }
+            }]
+          }" \
           ${{ secrets.DISCORD_WEBHOOK }}
