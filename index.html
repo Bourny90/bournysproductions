@@ -136,43 +136,7 @@
   </style>
 </head>
 <script>
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-function addToCart(name, price) {
-  cart.push({ name, price });
-  localStorage.setItem("cart", JSON.stringify(cart));
-  alert(name + " added to cart!");
-}
-
-<script>
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-function addToCart(name, price) {
-  cart.push({ name, price });
-  localStorage.setItem("cart", JSON.stringify(cart));
-  alert(name + " added to cart!");
-}
-
-function viewCart() {
-  if (cart.length === 0) {
-    alert("Your cart is empty.");
-    return;
-  }
-
-  let message = "Your Cart:\n\n";
-  let total = 0;
-
-  cart.forEach(item => {
-    message += item.name + " - £" + item.price + "\n";
-    total += item.price;
-  });
-
-  message += "\nTotal: £" + total;
-
-  alert(message);
-}
-</script>
-}
 </script>
   <body>
 
@@ -180,15 +144,20 @@ function viewCart() {
   <div class="sidebar">
     <h3>MY ACCOUNT</h3>
     <a href="#">Profile</a>
-    <a href="#" onclick="viewCart()">Cart</a>
-    <a href="#">Wishlist</a>
     <a href="#">Purchases</a>
-    <a href="#">Wallet</a>
+    
+     <h3>Products</h3>
+<a href="https://bournysproductions.com/" class="text-button-sidebar">
+  All Products
+</a>
+    <a href="#">Police Vehicles</a>
+    <a href="#">Fire Vehicles</a>
+    <a href="#">Ambulance Vehicles</a>
+    <a href="#">Other Vehicles</a>
+    <a href="#">Bundles</a>
 
-    <h3>EXPLORE</h3>
-    <a href="#">Marketplace</a>
-    <a href="#">Roblox Dev Platform</a>
-    <a href="#">Emergency Vehicles</a>
+    <h3>Information</h3>
+    <a href="#">Product Tiers</a>
 
 <h3>SUPPORT</h3>
 <a href="contact-us.html">Contact Us</a>
@@ -234,7 +203,7 @@ function viewCart() {
 </div>
 
     <div class="section">
-      <h2>🔥 Best Sellers</h2>
+      <h2>🔥 Featured</h2>
 
       <div class="products">
 
