@@ -1,377 +1,254 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Bournys Productions</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bournys Productions</title>
 
-  <style>
-    :root {
-      --bg: #0f0f12;
-      --glass: rgba(23,23,28,0.75);
-      --accent: #ff2a2a;
-      --accent2: #ff0000;
-      --text: #ffffff;
-      --text-dim: #aaaaaa;
-    }
+<style>
 
-    * { box-sizing: border-box; }
+/* RESET */
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: Arial, sans-serif;
+  background:#0d0d12;
+  color:white;
+  overflow-x:hidden;
+  animation: pageFade 0.6s ease;
+}
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      display: flex;
-      min-height: 100vh;
-      overflow-x: hidden;
-      opacity: 0;
-      transition: opacity 0.6s ease;
-      position: relative;
-    }
+@keyframes pageFade {
+  from { opacity:0; }
+  to { opacity:1; }
+}
 
-    body.fade-in { opacity: 1; }
+/* PARTICLE BACKGROUND */
+#particles {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:-1;
+  overflow:hidden;
+}
 
-    /* PARTICLES */
-    #particles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: 0;
-      pointer-events: none;
-    }
+.particle {
+  position:absolute;
+  width:4px;
+  height:4px;
+  background:#ff2a2a;
+  border-radius:50%;
+  animation: float 10s linear infinite;
+}
 
-    /* CONTENT LAYER ABOVE PARTICLES */
-    .layout {
-      display: flex;
-      width: 100%;
-      position: relative;
-      z-index: 2;
-    }
+@keyframes float {
+  from { transform: translateY(0); opacity:1; }
+  to { transform: translateY(-100vh); opacity:0; }
+}
 
-    /* SIDEBAR LINKS */
+/* BURGER */
+.burger {
+  font-size:26px;
+  cursor:pointer;
+  padding:18px;
+}
+
+/* SIDEBAR */
+.sidebar {
+  position:fixed;
+  top:0;
+  left:-260px;
+  width:260px;
+  height:100%;
+  background:rgba(20,20,25,0.95);
+  backdrop-filter: blur(12px);
+  transition:0.4s ease;
+  z-index:1000;
+  padding-top:20px;
+}
+
+.sidebar.open {
+  left:0;
+  box-shadow:0 0 60px rgba(255,0,0,0.25);
+}
+
+.sidebar h3 {
+  font-size:12px;
+  color:#888;
+  padding:20px 20px 5px;
+}
+
 .sidebar a {
-  position: relative;
-  display: block;
-  padding: 12px 20px;
-  color: #ccc;
-  text-decoration: none;
-  font-size: 14px;
-  transition: all 0.3s ease;
-  overflow: hidden;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:14px 22px;
+  text-decoration:none;
+  color:#ccc;
+  font-size:14px;
+  opacity:0;
+  transform:translateX(-10px);
+  transition:0.3s ease;
 }
 
-/* Glow sweep background */
-.sidebar a::before {
-  content: "";
-  position: absolute;
-  left: -100%;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,0,0,0.15), transparent);
-  transition: left 0.4s ease;
+.sidebar.open a {
+  opacity:1;
+  transform:translateX(0);
 }
 
-.sidebar a:hover::before {
-  left: 100%;
-}
-
-/* Hover glow */
 .sidebar a:hover {
-  color: white;
-  background: rgba(255, 0, 0, 0.08);
-  box-shadow: inset 3px 0 0 #ff2a2a;
+  color:white;
+  background:rgba(255,0,0,0.08);
 }
 
-/* Active link indicator */
-.sidebar a.active {
-  color: white;
-  background: rgba(255, 0, 0, 0.12);
-  box-shadow: inset 4px 0 0 #ff2a2a,
-              0 0 12px rgba(255, 0, 0, 0.4);
+.sidebar .icon {
+  transition:0.3s ease;
 }
 
-/* Click pulse effect */
-.sidebar a:active {
-  transform: scale(0.97);
+.sidebar a:hover .icon {
+  transform:translateX(4px) scale(1.15);
+  color:#ff2a2a;
 }
 
-    /* MAIN */
-    .main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
+/* SLIDING INDICATOR */
+.slider-indicator {
+  position:absolute;
+  left:0;
+  width:4px;
+  height:40px;
+  background:#ff2a2a;
+  border-radius:4px;
+  box-shadow:0 0 15px rgba(255,0,0,0.6);
+  transition:top 0.3s ease;
+}
 
-    .topbar {
-      padding: 20px;
-      background: rgba(20,20,25,0.85);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
+/* TOPBAR */
+.topbar {
+  display:flex;
+  align-items:center;
+  background:#111;
+}
 
-    .menu-toggle {
-      display: none;
-      font-size: 26px;
-      cursor: pointer;
-    }
+.topbar h1 {
+  font-size:20px;
+}
 
-    .home-btn {
-      font-size: 20px;
-      font-weight: bold;
-      text-decoration: none;
-      color: var(--text);
-    }
+/* HERO */
+.hero {
+  text-align:center;
+  padding:120px 20px 60px;
+}
 
-    /* HERO */
-    .hero {
-      text-align: center;
-      padding: 100px 20px 80px 20px;
-      background: transparent; /* IMPORTANT FIX */
-    }
+.hero h2 {
+  font-size:48px;
+}
 
-    .hero h1 {
-      font-size: 44px;
-      margin: 0;
-      letter-spacing: 2px;
-    }
+/* FEATURED */
+.section {
+  padding:40px;
+}
 
-    /* GLASS PANELS */
-    .community-card,
-    .card {
-      background: var(--glass);
-      backdrop-filter: blur(14px);
-      border: 1px solid rgba(255,255,255,0.05);
-      border-radius: 14px;
-      box-shadow: 0 0 40px rgba(0,0,0,0.4);
-      transition: 0.4s ease;
-    }
+.card {
+  background:rgba(25,25,30,0.8);
+  backdrop-filter:blur(8px);
+  padding:20px;
+  border-radius:8px;
+  transition:0.3s ease;
+}
 
-    .community-card {
-      margin: 40px;
-      padding: 30px;
-    }
+.card:hover {
+  transform:translateY(-6px);
+  box-shadow:0 0 25px rgba(255,42,42,0.4);
+}
 
-    .section {
-      padding: 40px;
-    }
+/* LOGIN BUTTON */
+.login-btn {
+  display:block;
+  margin:10px 20px;
+  padding:10px;
+  text-align:center;
+  background:#ff2a2a;
+  color:white;
+  border-radius:6px;
+  text-decoration:none;
+  transition:0.3s ease;
+}
 
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 25px;
-    }
+.login-btn:hover {
+  background:#ff4d4d;
+  transform:scale(1.05);
+}
 
-    .card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 14px 14px 0 0;
-    }
-
-    .card-content {
-      padding: 20px;
-    }
-
-    .buy-btn {
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      border: none;
-      padding: 10px 16px;
-      color: white;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.25s ease;
-    }
-
-    .buy-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 15px rgba(255,42,42,0.6);
-    }
-
-    /* OVERLAY */
-    .overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.6);
-      opacity: 0;
-      visibility: hidden;
-      transition: 0.3s;
-      z-index: 5;
-    }
-
-    .overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    /* MOBILE */
-    @media (max-width: 768px) {
-      .menu-toggle { display: block; }
-
-      .sidebar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
-        transform: translateX(-100%);
-        z-index: 10;
-      }
-
-      .sidebar.active { transform: translateX(0); }
-
-      body { flex-direction: column; }
-    }
-
-  </style>
+</style>
 </head>
 
 <body>
 
-<canvas id="particles"></canvas>
-<div class="overlay" id="overlay"></div>
+<div id="particles"></div>
 
-<div class="layout">
+<div class="topbar">
+  <div class="burger">☰</div>
+  <h1>BOURNYS PRODUCTIONS</h1>
+</div>
 
-  <div class="sidebar" id="sidebar">
-    <h3>PRODUCTS</h3>
-    <a href="#" class="active">All Products</a>
-    <a href="#">Police Vehicles</a>
-    <a href="#">Fire Vehicles</a>
-    <a href="#">Ambulance Vehicles</a>
-    <a href="#">Other Vehicles</a>
-  </div>
+<div class="sidebar">
+  <a href="login.html" class="login-btn">Login / Create Account</a>
 
-  <div class="main">
+  <h3>PRODUCTS</h3>
+  <a href="#"><span class="icon">🚓</span>Police Vehicles</a>
+  <a href="#"><span class="icon">🚒</span>Fire Vehicles</a>
+  <a href="#"><span class="icon">🚑</span>Ambulance Vehicles</a>
 
-    <div class="topbar">
-      <div class="menu-toggle" id="menuBtn">☰</div>
-      <a class="home-btn" href="#">BOURNYS PRODUCTIONS</a>
-    </div>
+  <div class="slider-indicator"></div>
+</div>
 
-    <div class="hero">
-      <h1>Bournys Productions</h1>
-    </div>
+<div class="hero">
+  <h2>Bournys Productions</h2>
+</div>
 
-    <div class="community-card">
-      <h2>Join the Discord Server</h2>
-      <p>Chat, get support & stay updated…</p>
-    </div>
-
-    <div class="section">
-      <h2>🔥 Featured</h2>
-      <div class="products">
-
-        <div class="card">
-          <img src="alpha.jpg">
-          <div class="card-content">
-            <h3>Project Alpha</h3>
-            <p>Advanced emergency response vehicle pack.</p>
-            <button class="buy-btn">Buy Now</button>
-          </div>
-        </div>
-
-        <div class="card">
-          <img src="LNAA Car.png">
-          <div class="card-content">
-            <h3>Air Ambulance Pack</h3>
-            <p>High-detail air ambulance system.</p>
-            <button class="buy-btn">Buy Now</button>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
+<div class="section">
+  <div class="card">
+    <h3>🔥 Featured</h3>
+    <p>High quality emergency vehicle packs.</p>
   </div>
 </div>
 
 <script>
-  window.addEventListener("load", () => {
-    document.body.classList.add("fade-in");
+
+/* BURGER TOGGLE */
+const burger = document.querySelector('.burger');
+const sidebar = document.querySelector('.sidebar');
+burger.addEventListener('click', ()=> {
+  sidebar.classList.toggle('open');
+});
+
+/* SLIDER INDICATOR */
+const links = document.querySelectorAll('.sidebar a');
+const indicator = document.querySelector('.slider-indicator');
+
+links.forEach(link=>{
+  link.addEventListener('click',function(){
+    indicator.style.top = this.offsetTop + "px";
   });
+});
 
-  const sidebar = document.getElementById("sidebar");
-  const overlay = document.getElementById("overlay");
-  const menuBtn = document.getElementById("menuBtn");
-
-  function toggleMenu() {
-    sidebar.classList.toggle("active");
-    overlay.classList.toggle("active");
+window.onload = ()=>{
+  if(links.length>1){
+    indicator.style.top = links[1].offsetTop + "px";
   }
+};
 
-  menuBtn.addEventListener("click", toggleMenu);
-  overlay.addEventListener("click", toggleMenu);
+/* PARTICLES */
+const container = document.getElementById('particles');
+for(let i=0;i<60;i++){
+  const p = document.createElement('div');
+  p.classList.add('particle');
+  p.style.left = Math.random()*100+"%";
+  p.style.top = Math.random()*100+"%";
+  p.style.animationDuration = (6+Math.random()*6)+"s";
+  container.appendChild(p);
+}
 
-  /* PARTICLES */
-  const canvas = document.getElementById("particles");
-  const ctx = canvas.getContext("2d");
-
-  function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-
-  resizeCanvas();
-  window.addEventListener("resize", resizeCanvas);
-
-  let particles = [];
-
-  class Particle {
-    constructor() {
-      this.x = Math.random() * canvas.width;
-      this.y = Math.random() * canvas.height;
-      this.size = Math.random() * 2 + 1;
-      this.speedY = Math.random() * 0.5 + 0.2;
-    }
-    update() {
-      this.y -= this.speedY;
-      if (this.y < 0) {
-        this.y = canvas.height;
-        this.x = Math.random() * canvas.width;
-      }
-    }
-    draw() {
-      ctx.fillStyle = "rgba(255,42,42,0.6)";
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-      ctx.fill();
-    }
-  }
-
-  function init() {
-    particles = [];
-    for (let i = 0; i < 90; i++) {
-      particles.push(new Particle());
-    }
-  }
-
-  function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach(p => {
-      p.update();
-      p.draw();
-    });
-    requestAnimationFrame(animate);
-  }
-
-  init();
-  animate();
-</script>
-
-<script>
-  const links = document.querySelectorAll('.sidebar a');
-
-  links.forEach(link => {
-    link.addEventListener('click', function() {
-      links.forEach(l => l.classList.remove('active'));
-      this.classList.add('active');
-    });
-  });
 </script>
 
 </body>
