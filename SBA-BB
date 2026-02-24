@@ -5,7 +5,6 @@
 <title>Best Burgers</title>
 
 <style>
-
 /* RESET */
 * { margin:0; padding:0; box-sizing:border-box; }
 body {
@@ -16,174 +15,72 @@ body {
   animation: pageFade 0.6s ease;
 }
 
-@keyframes pageFade {
-  from { opacity:0; }
-  to { opacity:1; }
-}
+@keyframes pageFade { from { opacity:0; } to { opacity:1; } }
 
-/* PARTICLE BACKGROUND */
+/* PARTICLES */
 #particles {
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  z-index:-1;
-  overflow:hidden;
+  position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; overflow:hidden;
 }
 
 .particle {
-  position:absolute;
-  width:4px;
-  height:4px;
-  background:#32ff00;
-  border-radius:50%;
+  position:absolute; width:4px; height:4px; background:#32ff00; border-radius:50%;
   animation: float 10s linear infinite;
 }
 
-@keyframes float {
-  from { transform: translateY(0); opacity:1; }
-  to { transform: translateY(-100vh); opacity:0; }
-}
+@keyframes float { from { transform: translateY(0); opacity:1; } to { transform: translateY(-100vh); opacity:0; } }
 
 /* BURGER */
-.burger {
-  font-size:26px;
-  cursor:pointer;
-  padding:18px;
-}
+.burger { font-size:26px; cursor:pointer; padding:18px; }
 
 /* SIDEBAR */
 .sidebar {
-  position:fixed;
-  top:0;
-  left:-260px;
-  width:260px;
-  height:100%;
-  background:rgba(20,20,25,0.95);
-  backdrop-filter: blur(12px);
-  transition:0.4s ease;
-  z-index:1000;
-  padding-top:20px;
+  position:fixed; top:0; left:-260px; width:260px; height:100%;
+  background:rgba(20,20,25,0.95); backdrop-filter: blur(12px); transition:0.4s ease;
+  z-index:1000; padding-top:20px;
 }
 
-.sidebar.open {
-  left:0;
-  box-shadow:0 0 60px rgba(50,255,0,0.25);
-}
-
-.sidebar h3 {
-  font-size:12px;
-  color:#888;
-  padding:20px 20px 5px;
-}
-
+.sidebar.open { left:0; box-shadow:0 0 60px rgba(50,255,0,0.25); }
+.sidebar h3 { font-size:12px; color:#888; padding:20px 20px 5px; }
 .sidebar a {
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:14px 22px;
-  text-decoration:none;
-  color:#ccc;
-  font-size:14px;
-  opacity:0;
-  transform:translateX(-10px);
-  transition:0.3s ease;
+  display:flex; align-items:center; gap:12px; padding:14px 22px; text-decoration:none; color:#ccc;
+  font-size:14px; opacity:0; transform:translateX(-10px); transition:0.3s ease;
 }
+.sidebar.open a { opacity:1; transform:translateX(0); }
+.sidebar a:hover { color:white; background:rgba(50,255,0,0.08); }
+.sidebar .icon { transition:0.3s ease; }
+.sidebar a:hover .icon { transform:translateX(4px) scale(1.15); color:#32ff00; }
 
-.sidebar.open a {
-  opacity:1;
-  transform:translateX(0);
-}
-
-.sidebar a:hover {
-  color:white;
-  background:rgba(50,255,0,0.08);
-}
-
-.sidebar .icon {
-  transition:0.3s ease;
-}
-
-.sidebar a:hover .icon {
-  transform:translateX(4px) scale(1.15);
-  color:#32ff00;
-}
-
-/* SLIDING INDICATOR */
+/* SLIDER INDICATOR */
 .slider-indicator {
-  position:absolute;
-  left:0;
-  width:4px;
-  height:40px;
-  background:#32ff00;
-  border-radius:4px;
-  box-shadow:0 0 15px rgba(50,255,0,0.6);
-  transition:top 0.3s ease;
+  position:absolute; left:0; width:4px; height:40px; background:#32ff00;
+  border-radius:4px; box-shadow:0 0 15px rgba(50,255,0,0.6); transition:top 0.3s ease;
 }
 
 /* TOPBAR */
-.topbar {
-  display:flex;
-  align-items:center;
-  background:#111;
-}
-
-.topbar h1 {
-  font-size:20px;
-}
+.topbar { display:flex; align-items:center; background:#111; }
+.topbar h1 { font-size:20px; }
 
 /* HERO */
-.hero {
-  text-align:center;
-  padding:120px 20px 60px;
-}
-
-.hero h2 {
-  font-size:48px;
-}
+.hero { text-align:center; padding:120px 20px 60px; }
+.hero h2 { font-size:48px; }
 
 /* FEATURED */
-.section {
-  padding:40px;
-}
-
+.section { padding:40px; }
 .card {
-  background:rgba(25,25,30,0.8);
-  backdrop-filter:blur(8px);
-  padding:20px;
-  border-radius:8px;
-  transition:0.3s ease;
+  background:rgba(25,25,30,0.8); backdrop-filter:blur(8px); padding:20px; border-radius:8px; transition:0.3s ease;
 }
-
-.card:hover {
-  transform:translateY(-6px);
-  box-shadow:0 0 25px rgba(50,255,0,0.4);
-}
+.card:hover { transform:translateY(-6px); box-shadow:0 0 25px rgba(50,255,0,0.4); }
 
 /* LOGIN BUTTON */
 .login-btn {
-  display:block;
-  margin:10px 20px;
-  padding:10px;
-  text-align:center;
-  background:#32ff00;
-  color:black;
-  border-radius:6px;
-  text-decoration:none;
-  transition:0.3s ease;
+  display:block; margin:10px 20px; padding:10px; text-align:center; background:#32ff00;
+  color:black; border-radius:6px; text-decoration:none; transition:0.3s ease;
 }
-
-.login-btn:hover {
-  background:#66ff33;
-  transform:scale(1.05);
-}
-
+.login-btn:hover { background:#66ff33; transform:scale(1.05); }
 </style>
 </head>
 
 <body>
-
 <div id="particles"></div>
 
 <div class="topbar">
@@ -192,18 +89,18 @@ body {
 </div>
 
 <div class="sidebar">
-  <a href="SBA-BB-MENU.HTML" class="login-btn">Login / Create Account</a>
+  <a href="SBA-BB.html" class="login-btn">Login / Create Account</a>
 
   <h3>MENU</h3>
-  <a href="SBA-BB-MENU.HTML"><span class="icon">🍔</span>Classic Burgers</a>
-  <a href="SBA-BB-MENU.HTML"><span class="icon">🧀</span>Cheese Burgers</a>
-  <a href="SBA-BB-MENU.HTML"><span class="icon">🥓</span>Bacon Burgers</a>
-  <a href="SBA-BB-MENU.HTML"><span class="icon">🍟</span>Sides</a>
-  <a href="SBA-BB-MENU.HTML"><span class="icon">🥤</span>Drinks</a>
+  <a href="SBA-BB.html"><span class="icon">🍔</span>Classic Burgers</a>
+  <a href="SBA-BB.html"><span class="icon">🧀</span>Cheese Burgers</a>
+  <a href="SBA-BB.html"><span class="icon">🥓</span>Bacon Burgers</a>
+  <a href="SBA-BB.html"><span class="icon">🍟</span>Sides</a>
+  <a href="SBA-BB.html"><span class="icon">🥤</span>Drinks</a>
 
   <h3>Contact Us</h3>
-  <a href="SBA-BB-MENU.HTML"><span class="icon">✉️</span>Email Us</a>
-  <a href="SBA-BB-MENU.HTML"><span class="icon"></span>Support Tickets</a>
+  <a href="SBA-BB.html"><span class="icon">✉️</span>Email Us</a>
+  <a href="SBA-BB.html"><span class="icon"></span>Support Tickets</a>
 
   <div class="slider-indicator"></div>
 </div>
@@ -220,29 +117,16 @@ body {
 </div>
 
 <script>
-
 /* BURGER TOGGLE */
 const burger = document.querySelector('.burger');
 const sidebar = document.querySelector('.sidebar');
-burger.addEventListener('click', ()=> {
-  sidebar.classList.toggle('open');
-});
+burger.addEventListener('click', ()=>{ sidebar.classList.toggle('open'); });
 
 /* SLIDER INDICATOR */
 const links = document.querySelectorAll('.sidebar a');
 const indicator = document.querySelector('.slider-indicator');
-
-links.forEach(link=>{
-  link.addEventListener('click',function(){
-    indicator.style.top = this.offsetTop + "px";
-  });
-});
-
-window.onload = ()=>{
-  if(links.length>1){
-    indicator.style.top = links[1].offsetTop + "px";
-  }
-};
+links.forEach(link=>{ link.addEventListener('click',function(){ indicator.style.top = this.offsetTop + "px"; }); });
+window.onload = ()=>{ if(links.length>1){ indicator.style.top = links[1].offsetTop + "px"; } };
 
 /* PARTICLES */
 const container = document.getElementById('particles');
@@ -254,8 +138,6 @@ for(let i=0;i<60;i++){
   p.style.animationDuration = (6+Math.random()*6)+"s";
   container.appendChild(p);
 }
-
 </script>
-
 </body>
 </html>
