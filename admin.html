@@ -1,5 +1,37 @@
-<h1>Admin Panel</h1>
-<p>Manage products and view orders.</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div style="display:flex;min-height:100vh;">
+
+<aside style="width:220px;background:#111;padding:20px;">
+  <h2>Admin</h2>
+  <a href="#">Dashboard</a>
+  <a href="#">Add Product</a>
+  <a href="#">Manage Products</a>
+  <a href="#">Users</a>
+  <a href="#">Logs</a>
+</aside>
+
+<main style="flex:1;padding:40px;">
+  <h1>Dashboard Overview</h1>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-top:20px;">
+    <div class="product-card">Total Users: 0</div>
+    <div class="product-card">Products: 0</div>
+    <div class="product-card">Active Sessions: 0</div>
+  </div>
+
+</main>
+
+</div>
+
+</body>
+</html>
 
 <script>
 let pass = prompt("Enter admin password:");
