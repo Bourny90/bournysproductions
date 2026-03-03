@@ -3,80 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Premium Roblox Emergency Vehicle Development">
-  <meta name="keywords" content="Roblox, Emergency Vehicles, Police, Fire, Ambulance">
+  <meta name="description" content="Premium Emergency Vehicle Development">
   <meta name="author" content="Bournys Productions">
-
-  <meta property="og:title" content="Bournys Productions">
-  <meta property="og:description" content="High quality emergency vehicle packs.">
-  <meta property="og:type" content="website">
 
   <title>Bournys Productions</title>
 
   <link rel="icon" href="assets/favicon.png" type="image/png">
 
-  <!-- Animate.css Library -->
+  <!-- Animation Library -->
   <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
   <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
-  <!-- Particle Background -->
-  <div id="particles"></div>
+<!-- Loading Screen -->
+<div id="loader">
+  <div class="spinner"></div>
+</div>
 
-  <!-- Top Navigation -->
-  <header class="topbar">
-    <button class="burger" id="burger">☰</button>
-    <h1 class="logo">BOURNYS PRODUCTIONS</h1>
-  </header>
+<!-- Header -->
+<header class="topbar">
+  <button class="burger" id="burger">☰</button>
+  <h1 class="logo">BOURNYS PRODUCTIONS</h1>
+</header>
 
-  <!-- Sidebar Navigation -->
-  <aside class="sidebar" id="sidebar">
+<!-- Sidebar -->
+<aside class="sidebar" id="sidebar">
+  <a href="#" class="login-btn">Login / Create Account</a>
 
-    <a href="login.html" class="login-btn">Login / Create Account</a>
+  <nav>
+    <a href="index.html" class="nav-link">Home</a>
 
-    <nav class="nav-section">
-      <a href="index.html" class="nav-link">Home</a>
-    </nav>
+    <h3>PRODUCTS</h3>
+    <a href="#" class="nav-link">Police Vehicles</a>
+    <a href="#" class="nav-link">Fire Vehicles</a>
+    <a href="#" class="nav-link">Ambulance Vehicles</a>
+    <a href="#" class="nav-link">Bundles</a>
 
-    <div class="nav-group">
-      <h3>PRODUCTS</h3>
-      <a href="Police-Vehicles.html" class="nav-link">🚓 Police Vehicles</a>
-      <a href="#" class="nav-link">🚒 Fire Vehicles</a>
-      <a href="#" class="nav-link">🚑 Ambulance Vehicles</a>
-      <a href="#" class="nav-link">🚙 Other Vehicles</a>
-      <a href="#" class="nav-link">📦 Bundles</a>
+    <h3>SUPPORT</h3>
+    <a href="#">Contact Us</a>
+    <a href="#">Support Tickets</a>
+  </nav>
+</aside>
+
+<!-- Main Content -->
+<main>
+
+<section class="hero animate__animated animate__fadeIn">
+  <h2>Bournys Productions</h2>
+  <p>Premium Emergency Vehicle Development</p>
+</section>
+
+<section class="products-section">
+  <h2 class="section-title">Featured Products</h2>
+
+  <div class="product-grid">
+
+    <div class="product-card animate__animated animate__fadeInUp">
+      <div class="image-placeholder"></div>
+      <h3>Product One</h3>
+      <p>High quality emergency vehicle pack.</p>
+      <button class="buy-btn">View</button>
     </div>
 
-    <div class="nav-group">
-      <h3>SUPPORT</h3>
-      <a href="contact-us.html" class="nav-link">✉️ Email Us</a>
-      <a href="#" class="nav-link">Support Tickets</a>
+    <div class="product-card animate__animated animate__fadeInUp">
+      <div class="image-placeholder"></div>
+      <h3>Product Two</h3>
+      <p>Realistic and optimized vehicles.</p>
+      <button class="buy-btn">View</button>
     </div>
 
-    <div class="slider-indicator" id="indicator"></div>
+    <div class="product-card animate__animated animate__fadeInUp">
+      <div class="image-placeholder"></div>
+      <h3>Product Three</h3>
+      <p>Advanced response systems.</p>
+      <button class="buy-btn">View</button>
+    </div>
 
-  </aside>
+  </div>
+</section>
 
-  <!-- Hero Section -->
-  <main>
-    <section class="hero">
-      <h2>Bournys Productions</h2>
-      <p>Premium Emergency Vehicle Development</p>
-    </section>
+</main>
 
-    <section class="section">
-      <div class="card">
-        <h3>🔥 Featured</h3>
-        <p>High quality emergency vehicle packs built for realism.</p>
-      </div>
-    </section>
-  </main>
-
-  <!-- JavaScript -->
-  <script src="js/main.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
