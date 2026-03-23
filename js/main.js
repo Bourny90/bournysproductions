@@ -1,3 +1,9 @@
+// Remove /index.html from URL
+if (window.location.pathname.endsWith("index.html")) {
+  const cleanURL = window.location.pathname.replace("index.html", "");
+  window.history.replaceState(null, "", cleanURL);
+}
+
 const menuToggle = document.getElementById("menuToggle");
 const sidebar = document.getElementById("sidebar");
 
