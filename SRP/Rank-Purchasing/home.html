@@ -6,7 +6,7 @@
   <title>Rank Purchasing | Bournys Productions</title>
   <link rel="stylesheet" href="/css/style.css" />
 
-    <style>
+  <style>
     /* ONLY affects this page */
 
     .page {
@@ -16,7 +16,7 @@
 
     .hero-simple {
       text-align: center;
-      padding: 120px 20px 40px;
+      padding: 120px 20px 20px; /* reduced bottom padding */
     }
 
     .hero-simple h2 {
@@ -33,28 +33,28 @@
       margin: 0 auto;
     }
 
+    /* NEW CLEAN CENTERED BACK BUTTON */
     .back-wrap {
       display: flex;
       justify-content: center;
-      margin: 20px 0 70px;
+      margin: 30px 0 80px; /* pushes it down nicely */
     }
 
     .back-btn {
-      display: inline-block;
       padding: 14px 34px;
       font-size: 15px;
       font-weight: 700;
       color: #fff;
       background: linear-gradient(135deg, #ff1a1a, #990000);
-      border-radius: 12px;
+      border-radius: 14px;
       text-decoration: none;
-      box-shadow: 0 0 16px rgba(255, 0, 0, 0.45);
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
       transition: all 0.25s ease;
     }
 
     .back-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 0 22px rgba(255, 0, 0, 0.75);
+      box-shadow: 0 0 28px rgba(255, 0, 0, 0.8);
       background: linear-gradient(135deg, #ff3333, #cc0000);
     }
 
@@ -67,26 +67,12 @@
       font-size: clamp(2rem, 4vw, 3.2rem);
       font-weight: 800;
       color: #fff;
-      position: relative;
-      display: inline-block;
       margin: 0;
-    }
-
-    .section-title h3::after {
-      content: "";
-      display: block;
-      width: 90px;
-      height: 4px;
-      margin: 14px auto 0;
-      border-radius: 999px;
-      background: linear-gradient(90deg, transparent, #ff2a2a, transparent);
-      box-shadow: 0 0 12px rgba(255, 0, 0, 0.5);
     }
 
     .product-grid {
       display: flex;
       justify-content: center;
-      align-items: stretch;
       flex-wrap: wrap;
       gap: 28px;
       padding: 0 20px 80px;
@@ -99,95 +85,49 @@
       min-height: 220px;
       border-radius: 22px;
       background: rgba(18, 18, 30, 0.88);
-      border: 1px solid rgba(255, 255, 255, 0.04);
-      box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.35),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.015);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
+      transition: 0.25s;
     }
 
     .product-card:hover {
       transform: translateY(-6px);
-      box-shadow:
-        0 16px 35px rgba(0, 0, 0, 0.45),
-        0 0 20px rgba(255, 0, 0, 0.12);
     }
 
     .product-content {
       padding: 30px 24px;
-      width: 100%;
     }
 
     .product-content h4 {
       font-size: 1.8rem;
       color: #fff;
-      margin: 0 0 12px;
-      font-weight: 800;
+      margin-bottom: 12px;
     }
 
     .product-content p {
-      font-size: 1rem;
-      color: rgba(255, 255, 255, 0.72);
-      margin: 0 0 24px;
-      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 20px;
     }
 
     .view-btn {
-      display: inline-block;
       padding: 12px 26px;
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: #fff;
-      text-decoration: none;
       background: #ff2b2b;
+      color: #fff;
       border-radius: 12px;
-      box-shadow: 0 0 14px rgba(255, 0, 0, 0.25);
-      transition: all 0.25s ease;
-    }
-
-    .view-btn:hover {
-      transform: translateY(-2px);
-      background: #ff3b3b;
-      box-shadow: 0 0 18px rgba(255, 0, 0, 0.45);
-    }
-
-    @media (max-width: 768px) {
-      .hero-simple {
-        padding: 100px 16px 30px;
-      }
-
-      .back-wrap {
-        margin: 15px 0 50px;
-      }
-
-      .product-grid {
-        padding: 0 16px 60px;
-        gap: 20px;
-      }
-
-      .product-card {
-        width: 100%;
-        max-width: 340px;
-        min-height: 200px;
-      }
-
-      .product-content h4 {
-        font-size: 1.5rem;
-      }
+      text-decoration: none;
+      font-weight: 700;
     }
   </style>
 </head>
+
 <body>
   <canvas id="particle-canvas"></canvas>
 
   <header class="topbar">
-    <button class="menu-btn" id="menuToggle" aria-label="Open menu">
+    <button class="menu-btn" id="menuToggle">
       <span></span>
       <span></span>
       <span></span>
@@ -197,21 +137,24 @@
 
   <nav class="sidebar" id="sidebar">
     <a href="/">Home</a>
-    <a href="info">Information</a>
+    <a href="/SRP/info">Information</a>
     <a href="/sba-bb/">Products</a>
     <a href="/contact-us/">Contact Us</a>
     <a href="/login/">Login</a>
   </nav>
 
   <main class="page">
+
     <section class="hero-simple">
       <h2>Rank Purchasing</h2>
       <p>Contains all the following UK:RP teams that ranks are able to be purchased on.</p>
-
-      <!-- BACK BUTTON (ONLY ON THIS PAGE) -->
-      <a href="/SRP/" class="back-btn">← Back</a>
     </section>
-    
+
+    <!-- MOVED OUTSIDE HERO -->
+    <div class="back-wrap">
+      <a href="/SRP/Rank-Purchasing/police-ranks" class="back-btn">← Back</a>
+    </div>
+
     <section class="section-title">
       <h3>UK:RP Teams</h3>
     </section>
@@ -224,6 +167,9 @@
           <a href="/SRP/info" class="view-btn">Read More</a>
         </div>
       </div>
+    </section>
+
+  </main>
 
   <script src="/js/main.js"></script>
 </body>
