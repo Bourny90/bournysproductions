@@ -85,46 +85,75 @@
       box-shadow: 0 0 12px rgba(255, 0, 0, 0.45);
     }
 
-    .info-section {
+    .product-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 28px;
+      padding: 0 20px 80px;
       max-width: 1100px;
       margin: 0 auto;
-      padding: 0 20px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 28px;
     }
 
-    .info-block {
-      background: rgba(18, 18, 30, 0.88);
+    .product-card {
+      width: 320px;
+      min-height: 220px;
       border-radius: 22px;
-      padding: 28px 24px;
+      background: rgba(18, 18, 30, 0.88);
       box-shadow:
         0 10px 30px rgba(0, 0, 0, 0.35),
         0 0 0 1px rgba(255, 255, 255, 0.03) inset;
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
       transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
-    .info-block:hover {
+    .product-card:hover {
       transform: translateY(-6px);
       box-shadow:
         0 16px 35px rgba(0, 0, 0, 0.45),
         0 0 20px rgba(255, 0, 0, 0.12);
     }
 
-    .info-block h4 {
-      font-size: 1.4rem;
-      font-weight: 800;
-      color: #fff;
-      margin: 0 0 14px;
+    .product-content {
+      padding: 30px 24px;
+      width: 100%;
     }
 
-    .info-block p {
+    .product-content h4 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #fff;
+      margin: 0 0 12px;
+    }
+
+    .product-content p {
       font-size: 1rem;
       color: rgba(255, 255, 255, 0.75);
-      line-height: 1.7;
-      margin: 0;
+      line-height: 1.6;
+      margin: 0 0 22px;
+    }
+
+    .view-btn {
+      display: inline-block;
+      padding: 12px 26px;
+      background: #ff2b2b;
+      color: #fff;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 0 14px rgba(255, 0, 0, 0.25);
+      transition: all 0.25s ease;
+    }
+
+    .view-btn:hover {
+      transform: translateY(-2px);
+      background: #ff3b3b;
+      box-shadow: 0 0 18px rgba(255, 0, 0, 0.45);
     }
 
     @media (max-width: 768px) {
@@ -140,13 +169,23 @@
         margin-bottom: 35px;
       }
 
-      .info-section {
-        padding: 0 16px;
+      .product-grid {
+        padding: 0 16px 60px;
         gap: 20px;
       }
 
-      .info-block {
+      .product-card {
+        width: 100%;
+        max-width: 340px;
+        min-height: 200px;
+      }
+
+      .product-content {
         padding: 24px 20px;
+      }
+
+      .product-content h4 {
+        font-size: 1.4rem;
       }
     }
   </style>
@@ -186,40 +225,45 @@
       <h3>Information</h3>
     </section>
 
-    <section class="info-section">
-      <div class="info-block">
-        <h4>Overview</h4>
-        <p>
-          UK:RP | SRP is a realism-focused emergency services roleplay experience built around a 1:1 recreation of Shirebrook. The aim is to provide immersive scenes, detailed locations, and a professional roleplay environment for all players.
-        </p>
+    <section class="product-grid">
+      <div class="product-card">
+        <div class="product-content">
+          <h4>Overview</h4>
+          <p>View more information about the overall game experience.</p>
+          <a href="https://yourwebsite.com/overview" target="_blank" rel="noopener noreferrer" class="view-btn">Read More</a>
+        </div>
       </div>
 
-      <div class="info-block">
-        <h4>Roles &amp; Services</h4>
-        <p>
-          Players can take part in a range of emergency service roles, including policing, fire and rescue, ambulance, and specialist response teams. Each service is designed to offer its own responsibilities, vehicles, and style of roleplay.
-        </p>
+      <div class="product-card">
+        <div class="product-content">
+          <h4>Roles &amp; Services</h4>
+          <p>See the different emergency services and roles available.</p>
+          <a href="https://yourwebsite.com/roles-services" target="_blank" rel="noopener noreferrer" class="view-btn">Read More</a>
+        </div>
       </div>
 
-      <div class="info-block">
-        <h4>Roleplay &amp; Progression</h4>
-        <p>
-          The experience is built to reward professional roleplay, teamwork, and progression through activity and involvement. Whether attending incidents, supporting large scenes, or working through specialist pathways, there is always room to develop.
-        </p>
+      <div class="product-card">
+        <div class="product-content">
+          <h4>Roleplay &amp; Progression</h4>
+          <p>Learn how progression and professional roleplay work.</p>
+          <a href="https://yourwebsite.com/roleplay-progression" target="_blank" rel="noopener noreferrer" class="view-btn">Read More</a>
+        </div>
       </div>
 
-      <div class="info-block">
-        <h4>Community &amp; Events</h4>
-        <p>
-          The community is supported through regular updates, organised roleplay sessions, and a growing range of events. This helps keep the experience active, varied, and enjoyable for both new and returning players.
-        </p>
+      <div class="product-card">
+        <div class="product-content">
+          <h4>Community &amp; Events</h4>
+          <p>Find out more about events, updates, and community activity.</p>
+          <a href="https://yourwebsite.com/community-events" target="_blank" rel="noopener noreferrer" class="view-btn">Read More</a>
+        </div>
       </div>
 
-      <div class="info-block">
-        <h4>Experience</h4>
-        <p>
-          The goal of SRP is to deliver a polished and engaging UK roleplay experience that feels structured, realistic, and enjoyable. From routine patrols to large-scale incidents, players can expect a detailed environment built for immersive gameplay.
-        </p>
+      <div class="product-card">
+        <div class="product-content">
+          <h4>Experience</h4>
+          <p>Explore what makes SRP immersive, detailed, and enjoyable.</p>
+          <a href="https://yourwebsite.com/experience" target="_blank" rel="noopener noreferrer" class="view-btn">Read More</a>
+        </div>
       </div>
     </section>
   </main>
