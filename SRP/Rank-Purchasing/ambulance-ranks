@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Game Description | Bournys Productions</title>
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <style>
+    /* ONLY affects this page */
+
+    .page {
+      position: relative;
+      z-index: 1;
+      padding-bottom: 80px;
+    }
+
+    .hero-simple {
+      text-align: center;
+      padding: 120px 20px 20px;
+    }
+
+    .hero-simple h2 {
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      font-weight: 800;
+      color: #fff;
+      margin: 0 0 14px;
+    }
+
+    .hero-simple p {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.75);
+      max-width: 760px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .back-wrap {
+      display: flex;
+      justify-content: center;
+      margin: 30px 0 70px;
+    }
+
+    .back-btn {
+      display: inline-block;
+      padding: 14px 34px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      background: linear-gradient(135deg, #ff1a1a, #990000);
+      border-radius: 14px;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.45);
+      transition: all 0.25s ease;
+    }
+
+    .back-btn:hover {
+      transform: translateY(-2px);
+      background: linear-gradient(135deg, #ff3333, #cc0000);
+      box-shadow: 0 0 28px rgba(255, 0, 0, 0.75);
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h3 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 800;
+      color: #fff;
+      margin: 0;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title h3::after {
+      content: "";
+      display: block;
+      width: 90px;
+      height: 4px;
+      margin: 14px auto 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, #ff2a2a, transparent);
+      box-shadow: 0 0 12px rgba(255, 0, 0, 0.45);
+    }
+
+    .product-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 28px;
+      padding: 0 20px 80px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .product-card {
+      width: 320px;
+      min-height: 220px;
+      border-radius: 22px;
+      background: rgba(18, 18, 30, 0.88);
+      box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.35),
+        0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow:
+        0 16px 35px rgba(0, 0, 0, 0.45),
+        0 0 20px rgba(255, 0, 0, 0.12);
+    }
+
+    .product-content {
+      padding: 30px 24px;
+      width: 100%;
+    }
+
+    .product-content h4 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #fff;
+      margin: 0 0 12px;
+    }
+
+    .product-content p {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.75);
+      line-height: 1.6;
+      margin: 0 0 22px;
+    }
+
+    .button-row {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .view-btn {
+      display: inline-block;
+      padding: 12px 26px;
+      background: #ff2b2b;
+      color: #fff;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 0 14px rgba(255, 0, 0, 0.25);
+      transition: all 0.25s ease;
+    }
+
+    .view-btn:hover {
+      transform: translateY(-2px);
+      background: #ff3b3b;
+      box-shadow: 0 0 18px rgba(255, 0, 0, 0.45);
+    }
+
+    @media (max-width: 768px) {
+      .hero-simple {
+        padding: 100px 16px 20px;
+      }
+
+      .back-wrap {
+        margin: 25px 0 50px;
+      }
+
+      .section-title {
+        margin-bottom: 35px;
+      }
+
+      .product-grid {
+        padding: 0 16px 60px;
+        gap: 20px;
+      }
+
+      .product-card {
+        width: 100%;
+        max-width: 340px;
+        min-height: 200px;
+      }
+
+      .product-content {
+        padding: 24px 20px;
+      }
+
+      .product-content h4 {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="particle-canvas"></canvas>
+
+  <header class="topbar">
+    <button class="menu-btn" id="menuToggle" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <h1 class="topbar-title">BOURNYS PRODUCTIONS</h1>
+  </header>
+
+  <nav class="sidebar" id="sidebar">
+    <a href="/">Home</a>
+    <a href="/SRP/info">Information</a>
+    <a href="/sba-bb/">Products</a>
+    <a href="/contact-us/">Contact Us</a>
+    <a href="/login/">Login</a>
+  </nav>
+
+  <main class="page">
+    <section class="hero-simple">
+      <h2>Fire Ranks</h2>
+      <p>Please open a ticket in the discord server to claim ranks.</p>
+    </section>
+
+    <div class="back-wrap">
+      <a href="/SRP/Rank-Purchasing/home" class="back-btn">← Back</a>
+    </div>
+
+    <section class="section-title">
+      <h3>Ranks</h3>
+    </section>
+
+    <section class="product-grid">
+      <div class="product-card">
+        <div class="product-content">
+          <h4>Trainee Firefighter</h4>
+          <p>Free! - Join the group.</p>
+          <div class="button-row">
+            <a href="https://www.roblox.com/communities/929484314/BP-UK-RP-Ranks#!/about" target="_blank" rel="noopener noreferrer" class="view-btn">Join</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-content">
+          <h4>Firefighter</h4>
+          <p>£5 or 500 Robux. Or attend 2 fire trainings.</p>
+          <div class="button-row">
+            <a href="payhip link" target="_blank" rel="noopener noreferrer" class="view-btn">Card</a>
+            <a href="roblox link" target="_blank" rel="noopener noreferrer" class="view-btn">Robux</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-content">
+          <h4>Leading Firefighter </h4>
+          <p>£10 or 1000 Robux. Or attend 4 fire trainings.</p>
+          <div class="button-row">
+            <a href="payhip link" target="_blank" rel="noopener noreferrer" class="view-btn">Card</a>
+            <a href="roblox link" target="_blank" rel="noopener noreferrer" class="view-btn">Robux</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-content">
+          <h4>Station Officer</h4>
+          <p>£15 or 1500 Robux. Or attend 6 fire trainings.</p>
+          <div class="button-row">
+            <a href="payhip link" target="_blank" rel="noopener noreferrer" class="view-btn">Card</a>
+            <a href="roblox link" target="_blank" rel="noopener noreferrer" class="view-btn">Robux</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-content">
+          <h4>Station Commander</h4>
+          <p>£20 or 2000 Robux. Or attend 8 fire trainings.</p>
+          <div class="button-row">
+            <a href="payhip link" target="_blank" rel="noopener noreferrer" class="view-btn">Card</a>
+            <a href="roblox link" target="_blank" rel="noopener noreferrer" class="view-btn">Robux</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-content">
+          <h4>Watch Commander</h4>
+          <p>£25 or 2500 Robux. Cannot obtain via training. Free for BP Staff.</p>
+          <div class="button-row">
+            <a href="payhip link" target="_blank" rel="noopener noreferrer" class="view-btn">Card</a>
+            <a href="roblox link" target="_blank" rel="noopener noreferrer" class="view-btn">Robux</a>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
