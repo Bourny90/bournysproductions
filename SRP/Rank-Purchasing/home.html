@@ -7,23 +7,23 @@
   <link rel="stylesheet" href="/css/style.css" />
 
   <style>
-    /* ONLY affects this page */
-
     .page {
       position: relative;
       z-index: 1;
+      min-height: 100vh;
+      padding-bottom: 80px;
     }
 
     .hero-simple {
       text-align: center;
-      padding: 120px 20px 20px; /* reduced bottom padding */
+      padding: 120px 20px 24px;
     }
 
     .hero-simple h2 {
       font-size: clamp(2.5rem, 6vw, 4.5rem);
       font-weight: 800;
       color: #fff;
-      margin-bottom: 12px;
+      margin: 0 0 12px;
     }
 
     .hero-simple p {
@@ -31,16 +31,19 @@
       color: rgba(255, 255, 255, 0.75);
       max-width: 700px;
       margin: 0 auto;
+      line-height: 1.6;
     }
 
-    /* NEW CLEAN CENTERED BACK BUTTON */
     .back-wrap {
       display: flex;
       justify-content: center;
-      margin: 30px 0 80px; /* pushes it down nicely */
+      margin: 16px 20px 60px;
     }
 
     .back-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       padding: 14px 34px;
       font-size: 15px;
       font-weight: 700;
@@ -48,19 +51,19 @@
       background: linear-gradient(135deg, #ff1a1a, #990000);
       border-radius: 14px;
       text-decoration: none;
-      box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
-      transition: all 0.25s ease;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.45);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
     }
 
     .back-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 0 28px rgba(255, 0, 0, 0.8);
+      box-shadow: 0 0 28px rgba(255, 0, 0, 0.75);
       background: linear-gradient(135deg, #ff3333, #cc0000);
     }
 
     .section-title {
       text-align: center;
-      margin-bottom: 40px;
+      margin: 0 20px 34px;
     }
 
     .section-title h3 {
@@ -71,54 +74,101 @@
     }
 
     .product-grid {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 320px));
       justify-content: center;
-      flex-wrap: wrap;
       gap: 28px;
       padding: 0 20px 80px;
       max-width: 1100px;
       margin: 0 auto;
+      box-sizing: border-box;
     }
 
     .product-card {
-      width: 320px;
-      min-height: 220px;
+      width: 100%;
+      min-height: 240px;
       border-radius: 22px;
       background: rgba(18, 18, 30, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.06);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      transition: 0.25s;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      box-sizing: border-box;
+      overflow: hidden;
     }
 
     .product-card:hover {
       transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.42);
     }
 
     .product-content {
+      width: 100%;
       padding: 30px 24px;
+      box-sizing: border-box;
     }
 
     .product-content h4 {
       font-size: 1.8rem;
       color: #fff;
-      margin-bottom: 12px;
+      margin: 0 0 12px;
     }
 
     .product-content p {
       color: rgba(255, 255, 255, 0.7);
-      margin-bottom: 20px;
+      margin: 0 0 22px;
+      line-height: 1.6;
     }
 
     .view-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       padding: 12px 26px;
       background: #ff2b2b;
       color: #fff;
       border-radius: 12px;
       text-decoration: none;
       font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      box-shadow: 0 0 18px rgba(255, 43, 43, 0.28);
+    }
+
+    .view-btn:hover {
+      transform: translateY(-2px);
+      background: #ff4040;
+      box-shadow: 0 0 24px rgba(255, 43, 43, 0.45);
+    }
+
+    @media (max-width: 640px) {
+      .hero-simple {
+        padding: 105px 16px 20px;
+      }
+
+      .back-wrap {
+        margin: 14px 16px 46px;
+      }
+
+      .product-grid {
+        grid-template-columns: 1fr;
+        padding: 0 16px 60px;
+      }
+
+      .product-card {
+        min-height: 220px;
+      }
+
+      .product-content {
+        padding: 24px 18px;
+      }
+
+      .view-btn,
+      .back-btn {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -127,7 +177,7 @@
   <canvas id="particle-canvas"></canvas>
 
   <header class="topbar">
-    <button class="menu-btn" id="menuToggle">
+    <button class="menu-btn" id="menuToggle" aria-label="Open menu">
       <span></span>
       <span></span>
       <span></span>
@@ -137,20 +187,18 @@
 
   <nav class="sidebar" id="sidebar">
     <a href="/">Home</a>
-    <a href="/SRP/Rank-Purchasing/police-ranks">Police Ranks</a>
-    <a href="/SRP/Rank-Purchasing/fire-ranks">Fire Ranks</a>
-    <a href="/SRP/Rank-Purchasing/ambulance-ranks">Ambulance Ranks</a>
-    <a href="/policies/uk:rp">UK:RP Policies</a>
+    <a href="/SRP/Rank-Purchasing/police-ranks/">Police Ranks</a>
+    <a href="/SRP/Rank-Purchasing/fire-ranks/">Fire Ranks</a>
+    <a href="/SRP/Rank-Purchasing/ambulance-ranks/">Ambulance Ranks</a>
+    <a href="/policies/uk-rp/">UK:RP Policies</a>
   </nav>
 
   <main class="page">
-
     <section class="hero-simple">
       <h2>Rank Purchasing</h2>
       <p>Contains all the following UK:RP teams that ranks are able to be purchased on.</p>
     </section>
 
-    <!-- MOVED OUTSIDE HERO -->
     <div class="back-wrap">
       <a href="/SRP/" class="back-btn">← Back</a>
     </div>
@@ -163,30 +211,27 @@
       <div class="product-card">
         <div class="product-content">
           <h4>Police Service</h4>
-          <p>Click to see ranks and prices.</p>
-          <a href="/SRP/Rank-Purchasing/police-ranks" class="view-btn">Read More</a>
+          <p>Click below to view police rank options and prices.</p>
+          <a href="/SRP/Rank-Purchasing/police-ranks/" class="view-btn">Read More</a>
         </div>
       </div>
-      
-      <section class="product-grid">
+
       <div class="product-card">
         <div class="product-content">
           <h4>Fire Service</h4>
-          <p>Click to see ranks and prices.</p>
-          <a href="/SRP/Rank-Purchasing/fire-ranks" class="view-btn">Read More</a>
+          <p>Click below to view fire rank options and prices.</p>
+          <a href="/SRP/Rank-Purchasing/fire-ranks/" class="view-btn">Read More</a>
         </div>
       </div>
-      
-      <section class="product-grid">
+
       <div class="product-card">
         <div class="product-content">
           <h4>Ambulance Service</h4>
-          <p>Click to see ranks and prices.</p>
-          <a href="/SRP/Rank-Purchasing/ambulance-ranks" class="view-btn">Read More</a>
+          <p>Click below to view ambulance rank options and prices.</p>
+          <a href="/SRP/Rank-Purchasing/ambulance-ranks/" class="view-btn">Read More</a>
         </div>
       </div>
     </section>
-
   </main>
 
   <script src="/js/main.js"></script>
