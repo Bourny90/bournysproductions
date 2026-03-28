@@ -110,6 +110,8 @@
       justify-content: center;
       text-align: center;
       transition: transform 0.25s ease, box-shadow 0.25s ease;
+      flex: 0 0 320px;
+      box-sizing: border-box;
     }
 
     .product-card:hover {
@@ -122,6 +124,7 @@
     .product-content {
       padding: 30px 24px;
       width: 100%;
+      box-sizing: border-box;
     }
 
     .product-content h4 {
@@ -185,6 +188,7 @@
         width: 100%;
         max-width: 340px;
         min-height: 200px;
+        flex: 0 0 100%;
       }
 
       .product-content {
@@ -243,29 +247,26 @@
         </div>
       </div>
 
- <section class="product-grid">
       <div class="product-card">
         <div class="product-content">
           <h4>Products</h4>
-          <p>View the TOS and Policies for the Products we sell.</p>
+          <p>View the TOS and Policies for the products we sell.</p>
           <div class="button-row">
             <a href="/policies/products" target="_blank" rel="noopener noreferrer" class="view-btn">Read More</a>
           </div>
         </div>
       </div>
-    
-     <section class="product-grid">
+
       <div class="product-card">
         <div class="product-content">
           <h4>Commissions</h4>
-          <p>View the TOS and Policies for our custom Commissions.</p>
+          <p>View the TOS and Policies for our custom commissions.</p>
           <div class="button-row">
             <a href="/policies/commissions" target="_blank" rel="noopener noreferrer" class="view-btn">Read More</a>
           </div>
         </div>
       </div>
-    
-     <section class="product-grid">
+
       <div class="product-card">
         <div class="product-content">
           <h4>Advertising</h4>
@@ -275,7 +276,6 @@
           </div>
         </div>
       </div>
-
     </section>
   </main>
 
