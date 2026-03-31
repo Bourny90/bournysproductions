@@ -182,6 +182,20 @@
       }
     }
   </style>
+  
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZV8J9CVQQQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied'
+  });
+
+  gtag('js', new Date());
+  gtag('config', 'G-ZV8J9CVQQQ');
+</script>
 </head>
 
 <body>
@@ -246,5 +260,101 @@
   </main>
 
   <script src="/js/main.js"></script>
+  <div id="cookie-banner" style="
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 32px);
+  max-width: 900px;
+  background: rgba(18, 18, 30, 0.96);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  padding: 18px 20px;
+  z-index: 99999;
+  display: none;
+">
+  <div style="display:flex; justify-content:space-between; gap:18px; flex-wrap:wrap; align-items:center;">
+    <div style="flex:1 1 420px; line-height:1.5; color:rgba(255,255,255,0.82);">
+      We use analytics cookies to understand how people use the site and improve it.
+      Read more in our <a href="/privacy/" style="color:#ff4b4b; font-weight:700;">Privacy Policy</a>.
+    </div>
+
+    <div style="display:flex; gap:12px; flex-wrap:wrap;">
+      <button onclick="acceptCookies()" style="
+        border:none; border-radius:12px; padding:12px 20px; font-weight:700; cursor:pointer;
+        background:#ff2b2b; color:#fff;
+      ">Accept</button>
+
+      <button onclick="rejectCookies()" style="
+        border:none; border-radius:12px; padding:12px 20px; font-weight:700; cursor:pointer;
+        background:rgba(255,255,255,0.08); color:#fff;
+      ">Reject</button>
+
+      <a href="/privacy/" style="
+        display:inline-block; text-decoration:none; border-radius:12px; padding:12px 20px;
+        font-weight:700; background:rgba(255,255,255,0.08); color:#fff;
+      ">Learn more</a>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener('click', function (event) {
+    const btn = event.target.closest('a, button');
+    if (!btn) return;
+
+    const consent = localStorage.getItem('cookieChoice');
+    if (consent !== 'accepted') return;
+
+    const label =
+      btn.textContent?.trim() ||
+      btn.getAttribute('href') ||
+      btn.id ||
+      'unknown_click';
+
+    gtag('event', 'click', {
+      event_category: 'engagement',
+      event_label: label
+    });
+  });
+</script>
+
+<script>
+  function acceptCookies() {
+    gtag('consent', 'update', {
+      'analytics_storage': 'granted'
+    });
+    localStorage.setItem('cookieChoice', 'accepted');
+    document.getElementById('cookie-banner').style.display = 'none';
+  }
+
+  function rejectCookies() {
+    gtag('consent', 'update', {
+      'analytics_storage': 'denied'
+    });
+    localStorage.setItem('cookieChoice', 'declined');
+    document.getElementById('cookie-banner').style.display = 'none';
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const choice = localStorage.getItem('cookieChoice');
+    const banner = document.getElementById('cookie-banner');
+
+    if (choice === 'accepted') {
+      gtag('consent', 'update', {
+        'analytics_storage': 'granted'
+      });
+      banner.style.display = 'none';
+    } else if (choice === 'declined') {
+      gtag('consent', 'update', {
+        'analytics_storage': 'denied'
+      });
+      banner.style.display = 'none';
+    } else {
+      banner.style.display = 'block';
+    }
+  });
+</script>
 </body>
 </html>
