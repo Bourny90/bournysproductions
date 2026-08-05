@@ -1,412 +1,355 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Staff LOA Portal</title>
-
-<link rel="icon" type="image/png" sizes="32x32" href="/images/BP-LOGO.png">
-<link rel="shortcut icon" href="/images/BP-LOGO.png">
-
-<style>
-:root {
-  --bg-main: #050505;
-  --bg-elevated: #121212;
-  --bg-panel: #1b1b1b;
-  --border-soft: #3d3d3d;
-  --border-strong: #8b0000;
-  --text-main: #f3f3f3;
-  --text-muted: #bebebe;
-  --accent: #d21919;
-  --accent-strong: #ff1f1f;
-  --shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  min-height: 100vh;
-  font-family: "Segoe UI", Arial, sans-serif;
-  color: var(--text-main);
-  background:
-    radial-gradient(circle at 20% 20%, rgba(210, 25, 25, 0.2), transparent 40%),
-    radial-gradient(circle at 80% 5%, rgba(255, 20, 20, 0.1), transparent 28%),
-    linear-gradient(165deg, #000000, #101010 55%, #171717);
-  padding: 24px;
-}
-
-.portal {
-  max-width: 950px;
-  margin: 0 auto;
-  border: 1px solid var(--border-soft);
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  background: linear-gradient(180deg, #111111, #141414 40%, #101010);
-}
-
-.header {
-  padding: 28px;
-  border-bottom: 1px solid #2a2a2a;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-.header h1 {
-  font-size: 1.75rem;
-  letter-spacing: 0.4px;
-}
-
-.header p {
-  color: var(--text-muted);
-  margin-top: 8px;
-}
-
-.badge {
-  align-self: start;
-  background: rgba(210, 25, 25, 0.15);
-  border: 1px solid var(--border-strong);
-  color: #ffd3d3;
-  border-radius: 999px;
-  padding: 8px 14px;
-  font-size: 0.82rem;
-}
-
-.main {
-  display: grid;
-  grid-template-columns: 1.35fr 1fr;
-}
-
-.form-wrap {
-  padding: 28px;
-}
-
-.alert {
-  margin-bottom: 20px;
-  padding: 12px 14px;
-  border-left: 4px solid var(--accent-strong);
-  border-radius: 10px;
-  background: #1e1111;
-  color: #ffc0c0;
-  font-size: 0.9rem;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-}
-
-.field {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.field.full {
-  grid-column: 1 / -1;
-}
-
-label {
-  color: #dedede;
-  font-size: 0.92rem;
-}
-
-input,
-textarea,
-select {
-  width: 100%;
-  border-radius: 10px;
-  border: 1px solid #373737;
-  background: var(--bg-panel);
-  color: var(--text-main);
-  font-size: 0.98rem;
-  padding: 12px 13px;
-  transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
-}
-
-textarea {
-  min-height: 100px;
-  resize: vertical;
-}
-
-input:focus,
-textarea:focus,
-select:focus {
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(210, 25, 25, 0.2);
-}
-
-.actions {
-  margin-top: 16px;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-button {
-  border: none;
-  border-radius: 10px;
-  padding: 13px 16px;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-button[type="submit"] {
-  flex: 1;
-  color: white;
-  background: linear-gradient(90deg, #8f0e0e, #e31f1f);
-}
-
-button[type="reset"] {
-  background: #262626;
-  color: #e6e6e6;
-  border: 1px solid #3a3a3a;
-}
-
-button:hover {
-  transform: translateY(-1px);
-}
-
-.side-panel {
-  border-left: 1px solid #2a2a2a;
-  background: linear-gradient(180deg, #121212, #0f0f0f);
-  padding: 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.panel-card {
-  border: 1px solid #2d2d2d;
-  border-radius: 14px;
-  padding: 16px;
-  background: #151515;
-}
-
-.panel-card h3 {
-  margin-bottom: 8px;
-  font-size: 1rem;
-  color: #ffe2e2;
-}
-
-.panel-card p,
-.panel-card li {
-  color: #cecece;
-  font-size: 0.9rem;
-  line-height: 1.45;
-}
-
-.panel-card ul {
-  margin-left: 18px;
-  display: grid;
-  gap: 6px;
-}
-
-.status {
-  font-size: 0.85rem;
-  color: #f8a7a7;
-}
-
-@media (max-width: 900px) {
-  .main {
-    grid-template-columns: 1fr;
-  }
-
-  .side-panel {
-    border-left: none;
-    border-top: 1px solid #2a2a2a;
-  }
-}
-
-@media (max-width: 620px) {
-  body {
-    padding: 12px;
-  }
-
-  .header,
-  .form-wrap,
-  .side-panel {
-    padding: 18px;
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
-</head>
-
 <body>
+
+<div class="background-blur"></div>
+
 <div class="portal">
-  <header class="header">
-    <div>
-      <h1>Staff Leave of Absence Portal</h1>
-      <p>Submit LOA requests with complete staffing details for management review.</p>
-    </div>
-    <span class="badge">Restricted Access • Staff Only</span>
-  </header>
 
-  <section class="main">
-    <div class="form-wrap">
-      <div class="alert">⚠️ Unauthorised access is forbidden. If credentials are exposed, report immediately.</div>
+<header class="topbar">
 
-      <form id="loaForm">
-        <div class="grid">
-          <div class="field">
-            <label for="user">Username</label>
-            <input type="text" id="user" placeholder="Enter your username" required>
-          </div>
-
-          <div class="field">
-            <label for="rank">Rank / Department</label>
-            <input type="text" id="rank" placeholder="e.g. Moderator" required>
-          </div>
-
-          <div class="field full">
-            <label for="reason">Reason for LOA</label>
-            <input type="text" id="reason" placeholder="Short reason summary" required>
-          </div>
-
-          <div class="field">
-            <label for="start">Start Date</label>
-            <input type="date" id="start" required>
-          </div>
-
-          <div class="field">
-            <label for="end">End Date</label>
-            <input type="date" id="end" required>
-          </div>
-
-          <div class="field full">
-            <label for="info">Additional Information</label>
-            <textarea id="info" placeholder="Optional context, handover notes, availability, etc."></textarea>
-          </div>
-        </div>
-
-        <div class="actions">
-          <button type="submit">Submit LOA Request</button>
-          <button type="reset">Clear</button>
-        </div>
-      </form>
-    </div>
-
-    <aside class="side-panel">
-      <div class="panel-card">
-        <h3>Submission Checklist</h3>
-        <ul>
-          <li>Provide a clear and valid LOA reason.</li>
-          <li>Ensure start and end dates are accurate.</li>
-          <li>Add any handover or availability notes.</li>
-        </ul>
-      </div>
-
-      <div class="panel-card">
-        <h3>Staff Notice</h3>
-        <p>Every submission is logged with timestamp, role key, and IP address for moderation and security auditing.</p>
-      </div>
-
-      <div class="panel-card">
-        <h3>Portal Status</h3>
-        <p id="portalStatus" class="status">Awaiting authentication…</p>
-      </div>
-    </aside>
-  </section>
+<div class="logo-section">
+<img src="/images/BP-LOGO.png" class="logo">
+<div>
+<h1>Bournys Productions</h1>
+<p>Staff Leave of Absence Portal</p>
+</div>
 </div>
 
-<script>
-const validPasswords = {
-  "Samson1322": "Founder / CEO",
-  "101Man101": "Management",
-  "1001BP_STAFF1001": "BP STAFF"
-};
+<div class="top-right">
 
-const portalStatus = document.getElementById("portalStatus");
-let staffPassword = prompt("Enter staff access password:");
+<div class="clock-card">
+<div class="clock-title">Current Time</div>
+<div id="liveClock">00:00:00</div>
+</div>
 
-if (!validPasswords[staffPassword]) {
-  document.body.innerHTML = "<h2 style='color:#ff4d4d;text-align:center;padding-top:15vh;'>Access Denied</h2>";
-} else {
-  portalStatus.textContent = `Authenticated as ${validPasswords[staffPassword]}.`;
-}
+<div class="date-card">
+<div class="clock-title">Today's Date</div>
+<div id="todayDate">Loading...</div>
+</div>
 
-document.getElementById("loaForm").addEventListener("submit", async function(e) {
-  e.preventDefault();
+<div class="user-card">
+<div class="status-dot"></div>
+<div>
+<div id="loggedInRank">Loading...</div>
+<small>Authenticated</small>
+</div>
+</div>
 
-  const startDate = document.getElementById("start").value;
-  const endDate = document.getElementById("end").value;
+</div>
 
-  if (startDate && endDate && endDate < startDate) {
-    alert("End date cannot be before start date.");
-    return;
-  }
+</header>
 
-  let submitPassword = prompt("Confirm staff password:");
+<section class="stats">
 
-  if (submitPassword !== staffPassword) {
-    alert("Password mismatch. Submission blocked.");
-    return;
-  }
+<div class="stat-card">
+<h2 id="activeCount">0</h2>
+<p>Active LOAs</p>
+</div>
 
-  const webhookURL = "https://discord.com/api/webhooks/1498012449776079040/qIgZ5zDiujr0-NC-6MWOz7wXnbg-NYj5JHsfJvwVY7tHd5Nm1vhWbXXSWRg-dA7_ufnO";
+<div class="stat-card">
+<h2 id="todayCount">0</h2>
+<p>Returning Today</p>
+</div>
 
-  const roleUsed = validPasswords[staffPassword];
+<div class="stat-card">
+<h2 id="pendingCount">1</h2>
+<p>Pending</p>
+</div>
 
-  const now = new Date();
-  const formattedTime = now.toLocaleString("en-GB", {
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit"
-  });
+<div class="stat-card">
+<h2 id="staffCount">0</h2>
+<p>Total Saved</p>
+</div>
 
-  let ip = "Unknown";
-  try {
-    const res = await fetch("https://api.ipify.org?format=json");
-    const dataIP = await res.json();
-    ip = dataIP.ip;
-  } catch {
-    ip = "Failed to fetch";
-  }
+</section>
 
-  const data = {
-    content: "<@&1413807002240679971>",
-    embeds: [{
-      title: "New LOA Request",
-      color: 16711680,
-      fields: [
-        { name: "User", value: document.getElementById("user").value, inline: true },
-        { name: "Rank", value: document.getElementById("rank").value, inline: true },
-        { name: "Reason", value: document.getElementById("reason").value },
-        { name: "Start Date", value: startDate, inline: true },
-        { name: "End Date", value: endDate, inline: true },
-        { name: "Other Info", value: document.getElementById("info").value || "N/A" },
-        { name: "Submitted At", value: formattedTime },
-        { name: "IP Address", value: ip },
-        { name: "Access Level Used", value: roleUsed }
-      ]
-    }]
-  };
+<div class="content">
 
-  fetch(webhookURL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data)
-  });
+<div class="left">
 
-  alert("LOA submitted successfully.");
-  document.getElementById("loaForm").reset();
-});
-</script>
+<div class="card">
+
+<h2>Submit Leave of Absence</h2>
+
+<form id="loaForm">
+
+<div class="input-group">
+
+<label>Username</label>
+
+<input
+type="text"
+id="user"
+placeholder="Enter username"
+required>
+
+</div>
+
+<div class="input-group">
+
+<label>Rank / Department</label>
+
+<input
+type="text"
+id="rank"
+placeholder="Moderator"
+required>
+
+</div>
+
+<div class="input-group">
+
+<label>Reason</label>
+
+<select id="reason">
+
+<option>Holiday</option>
+
+<option>School</option>
+
+<option>College</option>
+
+<option>Medical</option>
+
+<option>Family</option>
+
+<option>Work</option>
+
+<option>Mental Health</option>
+
+<option>Other</option>
+
+</select>
+
+</div>
+
+<div class="dates">
+
+<div>
+
+<label>Start Date</label>
+
+<input
+type="date"
+id="start"
+required>
+
+</div>
+
+<div>
+
+<label>End Date</label>
+
+<input
+type="date"
+id="end"
+required>
+
+</div>
+
+</div>
+
+<div class="duration-box">
+
+Length of Leave
+
+<h3 id="duration">0 Days</h3>
+
+</div>
+
+<div class="input-group">
+
+<label>Additional Information</label>
+
+<textarea
+id="info"
+maxlength="500"
+placeholder="Extra information..."></textarea>
+
+<div class="char-count">
+<span id="chars">0</span>/500
+</div>
+
+</div>
+
+<div class="progress">
+
+<div id="progressBar"></div>
+
+</div>
+
+<button class="submit-btn">
+
+Submit LOA
+
+</button>
+
+</form>
+
+</div>
+
+<div class="card">
+
+<h2>Submission Progress</h2>
+
+<div class="timeline">
+
+<div class="step active">
+
+<div class="circle"></div>
+
+Submitted
+
+</div>
+
+<div class="step">
+
+<div class="circle"></div>
+
+Management Review
+
+</div>
+
+<div class="step">
+
+<div class="circle"></div>
+
+Approved
+
+</div>
+
+<div class="step">
+
+<div class="circle"></div>
+
+Return to Duty
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="right">
+
+<div class="card">
+
+<h2>Portal Status</h2>
+
+<p id="portalStatus">
+
+Authenticating...
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>Search LOAs</h2>
+
+<input
+type="text"
+id="searchBox"
+placeholder="Search usernames...">
+
+</div>
+
+<div class="card">
+
+<h2>Active Leave</h2>
+
+<div id="loaList">
+
+<div class="empty">
+
+No active leave.
+
+</div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>Previous Requests</h2>
+
+<div id="historyList">
+
+<div class="empty">
+
+Nothing submitted yet.
+
+</div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>Checklist</h2>
+
+<ul>
+
+<li>✔ Correct dates</li>
+
+<li>✔ Valid reason</li>
+
+<li>✔ Notify your team</li>
+
+<li>✔ Submit before leaving</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h2>Staff Notice</h2>
+
+<p>
+
+Every submission is logged for management review.
+
+Unauthorised use is prohibited.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div id="successPopup" class="popup">
+
+<div class="popup-content">
+
+<h2>
+
+✔ Request Submitted
+
+</h2>
+
+<p>
+
+Your LOA has been sent to management.
+
+</p>
+
+<button onclick="closePopup()">
+
+Close
+
+</button>
+
+</div>
+
+</div>
 
 </body>
-</html>
