@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Staff LOA Portal</title>
 
 <link rel="icon" type="image/png" sizes="32x32" href="/images/BP-LOGO.png">
@@ -32,29 +33,58 @@ body {
   min-height: 100vh;
   font-family: "Segoe UI", Arial, sans-serif;
   color: var(--text-main);
+
   background:
-    radial-gradient(circle at 20% 20%, rgba(210, 25, 25, 0.2), transparent 40%),
-    radial-gradient(circle at 80% 5%, rgba(255, 20, 20, 0.1), transparent 28%),
-    linear-gradient(165deg, #000000, #101010 55%, #171717);
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(210, 25, 25, 0.2),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 80% 5%,
+      rgba(255, 20, 20, 0.1),
+      transparent 28%
+    ),
+    linear-gradient(
+      165deg,
+      #000000,
+      #101010 55%,
+      #171717
+    );
+
   padding: 24px;
 }
 
 .portal {
   max-width: 950px;
   margin: 0 auto;
+
   border: 1px solid var(--border-soft);
   border-radius: 20px;
+
   overflow: hidden;
+
   box-shadow: var(--shadow);
-  background: linear-gradient(180deg, #111111, #141414 40%, #101010);
+
+  background:
+    linear-gradient(
+      180deg,
+      #111111,
+      #141414 40%,
+      #101010
+    );
 }
 
 .header {
   padding: 28px;
+
   border-bottom: 1px solid #2a2a2a;
+
   display: flex;
   flex-wrap: wrap;
+
   justify-content: space-between;
+
   gap: 16px;
 }
 
@@ -70,16 +100,23 @@ body {
 
 .badge {
   align-self: start;
+
   background: rgba(210, 25, 25, 0.15);
+
   border: 1px solid var(--border-strong);
+
   color: #ffd3d3;
+
   border-radius: 999px;
+
   padding: 8px 14px;
+
   font-size: 0.82rem;
 }
 
 .main {
   display: grid;
+
   grid-template-columns: 1.35fr 1fr;
 }
 
@@ -89,23 +126,36 @@ body {
 
 .alert {
   margin-bottom: 20px;
+
   padding: 12px 14px;
+
   border-left: 4px solid var(--accent-strong);
+
   border-radius: 10px;
+
   background: #1e1111;
+
   color: #ffc0c0;
+
   font-size: 0.9rem;
+
+  line-height: 1.5;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
   gap: 14px;
 }
 
 .field {
   display: flex;
+
   flex-direction: column;
+
   gap: 8px;
 }
 
@@ -115,6 +165,7 @@ body {
 
 label {
   color: #dedede;
+
   font-size: 0.92rem;
 }
 
@@ -122,17 +173,28 @@ input,
 textarea,
 select {
   width: 100%;
+
   border-radius: 10px;
+
   border: 1px solid #373737;
+
   background: var(--bg-panel);
+
   color: var(--text-main);
+
   font-size: 0.98rem;
+
   padding: 12px 13px;
-  transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s,
+    transform 0.15s;
 }
 
 textarea {
   min-height: 100px;
+
   resize: vertical;
 }
 
@@ -140,34 +202,54 @@ input:focus,
 textarea:focus,
 select:focus {
   outline: none;
+
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(210, 25, 25, 0.2);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(210, 25, 25, 0.2);
 }
 
 .actions {
   margin-top: 16px;
+
   display: flex;
+
   gap: 10px;
+
   align-items: center;
 }
 
 button {
   border: none;
+
   border-radius: 10px;
+
   padding: 13px 16px;
+
   font-weight: 700;
+
   cursor: pointer;
 }
 
 button[type="submit"] {
   flex: 1;
+
   color: white;
-  background: linear-gradient(90deg, #8f0e0e, #e31f1f);
+
+  background:
+    linear-gradient(
+      90deg,
+      #8f0e0e,
+      #e31f1f
+    );
 }
 
 button[type="reset"] {
   background: #262626;
+
   color: #e6e6e6;
+
   border: 1px solid #3a3a3a;
 }
 
@@ -177,56 +259,98 @@ button:hover {
 
 .side-panel {
   border-left: 1px solid #2a2a2a;
-  background: linear-gradient(180deg, #121212, #0f0f0f);
+
+  background:
+    linear-gradient(
+      180deg,
+      #121212,
+      #0f0f0f
+    );
+
   padding: 28px;
+
   display: flex;
+
   flex-direction: column;
+
   gap: 18px;
 }
 
 .panel-card {
   border: 1px solid #2d2d2d;
+
   border-radius: 14px;
+
   padding: 16px;
+
   background: #151515;
 }
 
 .panel-card h3 {
   margin-bottom: 8px;
+
   font-size: 1rem;
+
   color: #ffe2e2;
 }
 
 .panel-card p,
 .panel-card li {
   color: #cecece;
+
   font-size: 0.9rem;
+
   line-height: 1.45;
 }
 
 .panel-card ul {
   margin-left: 18px;
+
   display: grid;
+
   gap: 6px;
 }
 
 .status {
   font-size: 0.85rem;
+
   color: #f8a7a7;
 }
 
+.monitoring {
+  margin-top: 10px;
+
+  padding: 10px;
+
+  border-radius: 8px;
+
+  background: #180909;
+
+  border: 1px solid #5c1717;
+
+  color: #ffaaaa;
+
+  font-size: 0.82rem;
+
+  line-height: 1.4;
+}
+
 @media (max-width: 900px) {
+
   .main {
     grid-template-columns: 1fr;
   }
 
   .side-panel {
     border-left: none;
+
     border-top: 1px solid #2a2a2a;
   }
+
 }
 
 @media (max-width: 620px) {
+
   body {
     padding: 12px;
   }
@@ -240,172 +364,1255 @@ button:hover {
   .grid {
     grid-template-columns: 1fr;
   }
+
 }
 </style>
 </head>
 
 <body>
+
 <div class="portal">
+
   <header class="header">
+
     <div>
-      <h1>Staff Leave of Absence Portal</h1>
-      <p>Submit LOA requests with complete staffing details for management review.</p>
+
+      <h1>
+        Staff Leave of Absence Portal
+      </h1>
+
+      <p>
+        This portal is restricted and is currently being retired.
+      </p>
+
     </div>
-    <span class="badge">Restricted Access • Staff Only</span>
+
+    <span class="badge">
+      Restricted Access • Staff Only
+    </span>
+
   </header>
 
+
   <section class="main">
+
     <div class="form-wrap">
-      <div class="alert">⚠️ Unauthorised access is forbidden. If credentials are exposed, report immediately.</div>
+
+      <div class="alert">
+
+        ⚠️ <strong>Portal Retirement Notice:</strong>
+
+        This LOA portal is being shut down.
+
+        Access is monitored and security events
+        may be reported to Bournys Productions management.
+
+      </div>
+
 
       <form id="loaForm">
+
         <div class="grid">
-          <div class="field">
-            <label for="user">Username</label>
-            <input type="text" id="user" placeholder="Enter your username" required>
-          </div>
 
           <div class="field">
-            <label for="rank">Rank / Department</label>
-            <input type="text" id="rank" placeholder="e.g. Moderator" required>
+
+            <label for="user">
+              Username
+            </label>
+
+            <input
+              type="text"
+              id="user"
+              placeholder="Enter your username"
+              required
+            >
+
           </div>
+
+
+          <div class="field">
+
+            <label for="rank">
+              Rank / Department
+            </label>
+
+            <input
+              type="text"
+              id="rank"
+              placeholder="e.g. Moderator"
+              required
+            >
+
+          </div>
+
 
           <div class="field full">
-            <label for="reason">Reason for LOA</label>
-            <input type="text" id="reason" placeholder="Short reason summary" required>
+
+            <label for="reason">
+              Reason for LOA
+            </label>
+
+            <input
+              type="text"
+              id="reason"
+              placeholder="Short reason summary"
+              required
+            >
+
           </div>
 
-          <div class="field">
-            <label for="start">Start Date</label>
-            <input type="date" id="start" required>
-          </div>
 
           <div class="field">
-            <label for="end">End Date</label>
-            <input type="date" id="end" required>
+
+            <label for="start">
+              Start Date
+            </label>
+
+            <input
+              type="date"
+              id="start"
+              required
+            >
+
           </div>
+
+
+          <div class="field">
+
+            <label for="end">
+              End Date
+            </label>
+
+            <input
+              type="date"
+              id="end"
+              required
+            >
+
+          </div>
+
 
           <div class="field full">
-            <label for="info">Additional Information</label>
-            <textarea id="info" placeholder="Optional context, handover notes, availability, etc."></textarea>
+
+            <label for="info">
+              Additional Information
+            </label>
+
+            <textarea
+              id="info"
+              placeholder="Optional context, handover notes, availability, etc."
+            ></textarea>
+
           </div>
+
         </div>
+
 
         <div class="actions">
-          <button type="submit">Submit LOA Request</button>
-          <button type="reset">Clear</button>
+
+          <button type="submit">
+            Submit LOA Request
+          </button>
+
+          <button type="reset">
+            Clear
+          </button>
+
         </div>
+
       </form>
+
     </div>
 
+
     <aside class="side-panel">
+
       <div class="panel-card">
-        <h3>Submission Checklist</h3>
+
+        <h3>
+          Submission Checklist
+        </h3>
+
         <ul>
-          <li>Provide a clear and valid LOA reason.</li>
-          <li>Ensure start and end dates are accurate.</li>
-          <li>Add any handover or availability notes.</li>
+
+          <li>
+            Provide a clear and valid LOA reason.
+          </li>
+
+          <li>
+            Ensure start and end dates are accurate.
+          </li>
+
+          <li>
+            Add any handover or availability notes.
+          </li>
+
         </ul>
+
       </div>
 
-      <div class="panel-card">
-        <h3>Staff Notice</h3>
-        <p>Every submission is logged with timestamp, role key, and IP address for moderation and security auditing.</p>
-      </div>
 
       <div class="panel-card">
-        <h3>Portal Status</h3>
-        <p id="portalStatus" class="status">Awaiting authentication…</p>
+
+        <h3>
+          Staff Notice
+        </h3>
+
+        <p>
+          This portal is being retired.
+          Access and authentication events may be logged
+          for security and management review.
+        </p>
+
+        <div class="monitoring">
+          🔒 Security monitoring active
+        </div>
+
       </div>
+
+
+      <div class="panel-card">
+
+        <h3>
+          Portal Status
+        </h3>
+
+        <p
+          id="portalStatus"
+          class="status"
+        >
+          Checking authentication…
+        </p>
+
+      </div>
+
     </aside>
+
   </section>
+
 </div>
 
+
 <script>
+
+/*
+===========================================================
+ BOURNYS PRODUCTIONS
+ STAFF LOA PORTAL
+ SECURITY MONITORING
+===========================================================
+*/
+
+
+/*
+===========================================================
+ STAFF ACCESS PASSWORDS
+===========================================================
+*/
+
 const validPasswords = {
-  "Samson1322": "Founder / CEO",
-  "101Man101": "Management",
-  "1001BP_STAFF1001": "BP STAFF"
+
+  "Samson1322":
+    "Founder / CEO",
+
+  "101Man101":
+    "Management",
+
+  "1001BP_STAFF1001":
+    "BP STAFF"
+
 };
 
-const portalStatus = document.getElementById("portalStatus");
-let staffPassword = prompt("Enter staff access password:");
 
-if (!validPasswords[staffPassword]) {
-  document.body.innerHTML = "<h2 style='color:#ff4d4d;text-align:center;padding-top:15vh;'>Access Denied</h2>";
-} else {
-  portalStatus.textContent = `Authenticated as ${validPasswords[staffPassword]}.`;
+/*
+===========================================================
+ SECURITY DISCORD WEBHOOK
+
+ PASTE YOUR WEBHOOK BETWEEN THE QUOTES.
+===========================================================
+*/
+
+const SECURITY_WEBHOOK =
+  "PASTE_YOUR_WEBHOOK_HERE";
+
+
+/*
+===========================================================
+ MANAGEMENT ROLE ID
+===========================================================
+*/
+
+const MANAGEMENT_ROLE_ID =
+  "1413807002240679971";
+
+
+/*
+===========================================================
+ LOA DISCORD WEBHOOK
+
+ PASTE YOUR LOA WEBHOOK BETWEEN THE QUOTES.
+===========================================================
+*/
+
+const LOA_WEBHOOK =
+  "PASTE_YOUR_LOA_WEBHOOK_HERE";
+
+
+/*
+===========================================================
+ PORTAL STATUS
+===========================================================
+*/
+
+const portalStatus =
+  document.getElementById("portalStatus");
+
+
+/*
+===========================================================
+ GET VISITOR IP
+===========================================================
+*/
+
+async function getVisitorIP() {
+
+  try {
+
+    const response =
+      await fetch(
+        "https://api.ipify.org?format=json",
+        {
+          cache: "no-store"
+        }
+      );
+
+    const data =
+      await response.json();
+
+    return data.ip || "Unknown";
+
+  } catch {
+
+    return "Unable to determine";
+
+  }
+
 }
 
-document.getElementById("loaForm").addEventListener("submit", async function(e) {
-  e.preventDefault();
 
-  const startDate = document.getElementById("start").value;
-  const endDate = document.getElementById("end").value;
+/*
+===========================================================
+ GET TIMESTAMP
+===========================================================
+*/
 
-  if (startDate && endDate && endDate < startDate) {
-    alert("End date cannot be before start date.");
-    return;
-  }
+function getTimestamp() {
 
-  let submitPassword = prompt("Confirm staff password:");
+  return new Date().toLocaleString(
+    "en-GB",
+    {
+      weekday: "long",
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      timeZoneName: "short"
+    }
+  );
 
-  if (submitPassword !== staffPassword) {
-    alert("Password mismatch. Submission blocked.");
-    return;
-  }
+}
 
-  const webhookURL = "https://discord.com/api/webhooks/1498012449776079040/qIgZ5zDiujr0-NC-6MWOz7wXnbg-NYj5JHsfJvwVY7tHd5Nm1vhWbXXSWRg-dA7_ufnO";
 
-  const roleUsed = validPasswords[staffPassword];
+/*
+===========================================================
+ SEND SECURITY ALERT
+===========================================================
+*/
 
-  const now = new Date();
-  const formattedTime = now.toLocaleString("en-GB", {
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit"
-  });
+async function sendSecurityAlert(
+  eventType,
+  extraFields = []
+) {
 
-  let ip = "Unknown";
-  try {
-    const res = await fetch("https://api.ipify.org?format=json");
-    const dataIP = await res.json();
-    ip = dataIP.ip;
-  } catch {
-    ip = "Failed to fetch";
-  }
+  const ip =
+    await getVisitorIP();
+
+  const browserInfo =
+    navigator.userAgent ||
+    "Unknown";
+
+  const platform =
+    navigator.platform ||
+    "Unknown";
+
+  const language =
+    navigator.language ||
+    "Unknown";
+
+  const timezone =
+    Intl.DateTimeFormat()
+      .resolvedOptions()
+      .timeZone ||
+    "Unknown";
+
+  const screenSize =
+    `${window.screen.width} × ${window.screen.height}`;
+
+  const viewportSize =
+    `${window.innerWidth} × ${window.innerHeight}`;
+
+  const currentURL =
+    window.location.href;
+
+  const referrer =
+    document.referrer ||
+    "Direct access / No referrer";
+
 
   const data = {
-    content: "<@&1413807002240679971>",
-    embeds: [{
-      title: "New LOA Request",
-      color: 16711680,
-      fields: [
-        { name: "User", value: document.getElementById("user").value, inline: true },
-        { name: "Rank", value: document.getElementById("rank").value, inline: true },
-        { name: "Reason", value: document.getElementById("reason").value },
-        { name: "Start Date", value: startDate, inline: true },
-        { name: "End Date", value: endDate, inline: true },
-        { name: "Other Info", value: document.getElementById("info").value || "N/A" },
-        { name: "Submitted At", value: formattedTime },
-        { name: "IP Address", value: ip },
-        { name: "Access Level Used", value: roleUsed }
-      ]
-    }]
+
+    content:
+      `<@&${MANAGEMENT_ROLE_ID}>`,
+
+    embeds: [
+
+      {
+
+        title:
+          "🚨 Potential LOA Portal Security Event",
+
+        description:
+          "The Staff LOA Portal has been accessed.",
+
+        color:
+          16711680,
+
+        fields: [
+
+          {
+            name:
+              "⚠️ Event",
+
+            value:
+              eventType,
+
+            inline:
+              false
+          },
+
+
+          {
+            name:
+              "🌐 IP Address",
+
+            value:
+              ip,
+
+            inline:
+              true
+          },
+
+
+          {
+            name:
+              "🕐 Timestamp",
+
+            value:
+              getTimestamp(),
+
+            inline:
+              true
+          },
+
+
+          {
+            name:
+              "🔐 Authentication",
+
+            value:
+              "Not authenticated",
+
+            inline:
+              true
+          },
+
+
+          {
+            name:
+              "🔗 Page",
+
+            value:
+              currentURL.substring(0, 1024),
+
+            inline:
+              false
+          },
+
+
+          {
+            name:
+              "↩️ Referrer",
+
+            value:
+              referrer.substring(0, 1024),
+
+            inline:
+              false
+          },
+
+
+          {
+            name:
+              "💻 Platform",
+
+            value:
+              platform,
+
+            inline:
+              true
+          },
+
+
+          {
+            name:
+              "🌍 Language",
+
+            value:
+              language,
+
+            inline:
+              true
+          },
+
+
+          {
+            name:
+              "🗺️ Timezone",
+
+            value:
+              timezone,
+
+            inline:
+              true
+          },
+
+
+          {
+            name:
+              "📐 Screen",
+
+            value:
+              screenSize,
+
+            inline:
+              true
+          },
+
+
+          {
+            name:
+              "📱 Viewport",
+
+            value:
+              viewportSize,
+
+            inline:
+              true
+          },
+
+
+          {
+            name:
+              "🧭 User Agent",
+
+            value:
+              browserInfo.substring(0, 1024),
+
+            inline:
+              false
+          },
+
+
+          ...extraFields
+
+        ],
+
+
+        footer: {
+
+          text:
+            "Bournys Productions • LOA Security Monitoring"
+
+        },
+
+
+        timestamp:
+          new Date().toISOString()
+
+      }
+
+    ]
+
   };
 
-  fetch(webhookURL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data)
-  });
 
-  alert("LOA submitted successfully.");
-  document.getElementById("loaForm").reset();
-});
+  try {
+
+    await fetch(
+      SECURITY_WEBHOOK,
+      {
+
+        method:
+          "POST",
+
+        headers:
+          {
+            "Content-Type":
+              "application/json"
+          },
+
+        body:
+          JSON.stringify(data)
+
+      }
+    );
+
+  } catch (error) {
+
+    console.error(
+      "Security alert failed:",
+      error
+    );
+
+  }
+
+}
+
+
+/*
+===========================================================
+ 🚨 PAGE ACCESS ALERT
+===========================================================
+
+ Runs immediately when somebody opens the page.
+===========================================================
+*/
+
+sendSecurityAlert(
+  "PAGE ACCESS DETECTED",
+  [
+
+    {
+
+      name:
+        "📋 Portal Status",
+
+      value:
+        "Restricted / Being Retired",
+
+      inline:
+        true
+
+    },
+
+
+    {
+
+      name:
+        "🚨 Reason for Alert",
+
+      value:
+        "Someone has accessed the Staff LOA Portal.",
+
+      inline:
+        false
+
+    }
+
+  ]
+);
+
+
+/*
+===========================================================
+ PASSWORD PROMPT
+===========================================================
+*/
+
+let staffPassword =
+  prompt(
+    "This portal is restricted and is being retired.\n\nEnter staff access password:"
+  );
+
+
+/*
+===========================================================
+ INVALID PASSWORD
+===========================================================
+*/
+
+if (
+  !validPasswords[staffPassword]
+) {
+
+  portalStatus.textContent =
+    "Access denied.";
+
+
+  /*
+  -----------------------------------------------
+   FAILED LOGIN ALERT
+  -----------------------------------------------
+  */
+
+  sendSecurityAlert(
+    "❌ FAILED AUTHENTICATION ATTEMPT",
+    [
+
+      {
+
+        name:
+          "🔑 Result",
+
+        value:
+          "Invalid password entered",
+
+        inline:
+          true
+
+      },
+
+
+      {
+
+        name:
+          "🚨 Severity",
+
+        value:
+          "HIGH",
+
+        inline:
+          true
+
+      },
+
+
+      {
+
+        name:
+          "📋 Action",
+
+        value:
+          "Access blocked",
+
+        inline:
+          true
+
+      }
+
+    ]
+  );
+
+
+  /*
+  -----------------------------------------------
+   ACCESS DENIED PAGE
+  -----------------------------------------------
+  */
+
+  document.body.innerHTML = `
+
+    <div
+      style="
+        min-height:100vh;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        background:#050505;
+        color:white;
+        font-family:Arial,sans-serif;
+        text-align:center;
+        padding:30px;
+      "
+    >
+
+      <div>
+
+        <h2
+          style="
+            color:#ff4d4d;
+            margin-bottom:12px;
+          "
+        >
+          Access Denied
+        </h2>
+
+
+        <p
+          style="
+            color:#aaa;
+          "
+        >
+          This portal is restricted
+          and is being retired.
+        </p>
+
+      </div>
+
+    </div>
+
+  `;
+
+
+} else {
+
+
+  /*
+  =======================================================
+   VALID LOGIN
+  =======================================================
+  */
+
+  const roleUsed =
+    validPasswords[staffPassword];
+
+
+  portalStatus.textContent =
+    `Authenticated as ${roleUsed}.`;
+
+
+  /*
+  -----------------------------------------------
+   SUCCESSFUL LOGIN ALERT
+  -----------------------------------------------
+  */
+
+  sendSecurityAlert(
+    "✅ SUCCESSFUL STAFF AUTHENTICATION",
+    [
+
+      {
+
+        name:
+          "🔑 Access Level",
+
+        value:
+          roleUsed,
+
+        inline:
+          true
+
+      },
+
+
+      {
+
+        name:
+          "📋 Result",
+
+        value:
+          "Valid staff credentials accepted",
+
+        inline:
+          true
+
+      },
+
+
+      {
+
+        name:
+          "🚨 Monitoring",
+
+        value:
+          "Access logged for management review",
+
+        inline:
+          false
+
+      }
+
+    ]
+  );
+
+
+  /*
+  =======================================================
+   LOA SUBMISSION
+  =======================================================
+  */
+
+  document
+    .getElementById("loaForm")
+    .addEventListener(
+      "submit",
+      async function(e) {
+
+        e.preventDefault();
+
+
+        const startDate =
+          document.getElementById("start").value;
+
+        const endDate =
+          document.getElementById("end").value;
+
+
+        /*
+        -----------------------------------------------
+         DATE VALIDATION
+        -----------------------------------------------
+        */
+
+        if (
+          startDate &&
+          endDate &&
+          endDate < startDate
+        ) {
+
+          alert(
+            "End date cannot be before start date."
+          );
+
+          return;
+
+        }
+
+
+        /*
+        -----------------------------------------------
+         CONFIRM PASSWORD
+        -----------------------------------------------
+        */
+
+        const submitPassword =
+          prompt(
+            "Confirm staff password:"
+          );
+
+
+        /*
+        -----------------------------------------------
+         PASSWORD MISMATCH
+        -----------------------------------------------
+        */
+
+        if (
+          submitPassword !== staffPassword
+        ) {
+
+          await sendSecurityAlert(
+            "❌ FAILED LOA SUBMISSION AUTHENTICATION",
+            [
+
+              {
+
+                name:
+                  "User",
+
+                value:
+                  document.getElementById(
+                    "user"
+                  ).value ||
+                  "Not provided",
+
+                inline:
+                  true
+
+              },
+
+
+              {
+
+                name:
+                  "Reason",
+
+                value:
+                  "Incorrect confirmation password",
+
+                inline:
+                  false
+
+              },
+
+
+              {
+
+                name:
+                  "🚨 Severity",
+
+                value:
+                  "HIGH",
+
+                inline:
+                  true
+
+              }
+
+            ]
+          );
+
+
+          alert(
+            "Password mismatch. Submission blocked."
+          );
+
+
+          return;
+
+        }
+
+
+        /*
+        -----------------------------------------------
+         GET IP
+        -----------------------------------------------
+        */
+
+        const ip =
+          await getVisitorIP();
+
+
+        /*
+        -----------------------------------------------
+         TIMESTAMP
+        -----------------------------------------------
+        */
+
+        const formattedTime =
+          new Date().toLocaleString(
+            "en-GB",
+            {
+              day: "2-digit",
+              month: "2-digit",
+              year: "numeric",
+              hour: "2-digit",
+              minute: "2-digit",
+              second: "2-digit"
+            }
+          );
+
+
+        /*
+        -----------------------------------------------
+         LOA DISCORD DATA
+        -----------------------------------------------
+        */
+
+        const data = {
+
+          content:
+            `<@&${MANAGEMENT_ROLE_ID}>`,
+
+          embeds: [
+
+            {
+
+              title:
+                "📋 New LOA Request",
+
+              color:
+                16711680,
+
+              fields: [
+
+                {
+
+                  name:
+                    "User",
+
+                  value:
+                    document.getElementById(
+                      "user"
+                    ).value,
+
+                  inline:
+                    true
+
+                },
+
+
+                {
+
+                  name:
+                    "Rank",
+
+                  value:
+                    document.getElementById(
+                      "rank"
+                    ).value,
+
+                  inline:
+                    true
+
+                },
+
+
+                {
+
+                  name:
+                    "Reason",
+
+                  value:
+                    document.getElementById(
+                      "reason"
+                    ).value
+
+                },
+
+
+                {
+
+                  name:
+                    "Start Date",
+
+                  value:
+                    startDate,
+
+                  inline:
+                    true
+
+                },
+
+
+                {
+
+                  name:
+                    "End Date",
+
+                  value:
+                    endDate,
+
+                  inline:
+                    true
+
+                },
+
+
+                {
+
+                  name:
+                    "Other Info",
+
+                  value:
+                    document.getElementById(
+                      "info"
+                    ).value ||
+                    "N/A"
+
+                },
+
+
+                {
+
+                  name:
+                    "Submitted At",
+
+                  value:
+                    formattedTime
+
+                },
+
+
+                {
+
+                  name:
+                    "IP Address",
+
+                  value:
+                    ip
+
+                },
+
+
+                {
+
+                  name:
+                    "Access Level",
+
+                  value:
+                    roleUsed
+
+                }
+
+              ]
+
+            }
+
+          ]
+
+        };
+
+
+        /*
+        -----------------------------------------------
+         SEND LOA TO DISCORD
+        -----------------------------------------------
+        */
+
+        try {
+
+          const response =
+            await fetch(
+              LOA_WEBHOOK,
+              {
+
+                method:
+                  "POST",
+
+                headers:
+                  {
+                    "Content-Type":
+                      "application/json"
+                  },
+
+                body:
+                  JSON.stringify(data)
+
+              }
+            );
+
+
+          if (!response.ok) {
+
+            throw new Error(
+              "Discord webhook returned an error."
+            );
+
+          }
+
+
+          alert(
+            "LOA submitted successfully."
+          );
+
+
+          document
+            .getElementById("loaForm")
+            .reset();
+
+
+        } catch (error) {
+
+          console.error(
+            "LOA submission failed:",
+            error
+          );
+
+
+          alert(
+            "The LOA could not be submitted. Please contact management."
+          );
+
+        }
+
+      }
+    );
+
+}
+
 </script>
 
 </body>
