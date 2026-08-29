@@ -3,105 +3,435 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Bournys Productions</title>
-  <meta name="description" content="Bournys Productions creates immersive UK roleplay experiences, professional assets, and responsive community support." />
+
+  <meta
+    name="description"
+    content="Bournys Productions creates immersive UK roleplay experiences, professional assets, and responsive community support."
+  />
+
   <link rel="stylesheet" href="/css/style.css" />
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-530716259"></script>
+
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);} 
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
     gtag('js', new Date());
     gtag('config', 'G-530716259');
   </script>
 </head>
+
 <body>
+
   <canvas id="particle-canvas"></canvas>
 
+  <!-- =========================
+       TOP NAVIGATION
+       ========================= -->
+
   <header class="topbar">
-    <button class="menu-btn" id="menuToggle" aria-label="Open menu">
-      <span></span><span></span><span></span>
+
+    <button
+      class="menu-btn"
+      id="menuToggle"
+      aria-label="Open menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
     </button>
-    <h1 class="topbar-title">BOURNYS PRODUCTIONS</h1>
+
+    <h1 class="topbar-title">
+      BOURNYS PRODUCTIONS
+    </h1>
+
   </header>
 
+
+  <!-- =========================
+       SIDEBAR
+       ========================= -->
+
   <nav class="sidebar" id="sidebar">
-    <a href="/">Home</a>
-    <a href="/SRP/">UK:RP SRP</a>
-    <a href="/BP-Asset-Hub/Home">Asset Hub</a>
-    <a href="/contact-us">Contact</a>
-    <a href="/policies/home">Policies</a>
+
+    <a href="/">
+      Home
+    </a>
+
+    <a href="/SRP/">
+      UK:RP SRP
+    </a>
+
+    <a href="/BP-Asset-Hub/Home">
+      Asset Hub
+    </a>
+
+    <a href="/contact-us">
+      Contact
+    </a>
+
+    <a href="/policies/home">
+      Policies
+    </a>
+
   </nav>
 
+
+  <!-- =========================
+       MAIN PAGE
+       ========================= -->
+
   <main class="page home-page">
-    <section class="home-hero">
-      <p class="kicker">Premium Games • Assets • Community</p>
-      <h2>Building Bold Roleplay Experiences</h2>
-      <p class="hero-copy">
-        We design and run immersive UK roleplay projects, provide high-quality production assets, and support a growing creator community.
-      </p>
-      <div class="hero-actions">
-        <a class="view-btn" href="/SRP/">Explore UK:RP SRP</a>
-        <a class="ghost-btn" href="/BP-Asset-Hub/Home">Browse Asset Hub</a>
+
+
+    <!-- =========================
+         LNAA FEATURE
+         ========================= -->
+
+    <section class="lnaa-feature">
+
+      <div class="lnaa-feature-glow"></div>
+
+      <div class="lnaa-logo-container">
+
+        <!--
+          IMPORTANT:
+          Put the approved LNAA "In Aid Of" logo
+          supplied to you inside:
+
+          /images/lnaa-in-aid-of-logo.png
+
+          Then this image will appear automatically.
+        -->
+
+        <img
+          src="/images/lnaa-in-aid-of-logo.png"
+          alt="In Aid Of Lincs & Notts Air Ambulance"
+          class="lnaa-logo"
+        />
+
       </div>
+
+
+      <div class="lnaa-feature-content">
+
+        <span class="lnaa-label">
+          PROUDLY SUPPORTING
+        </span>
+
+        <h2>
+          Lincs &amp; Notts Air Ambulance
+        </h2>
+
+        <p class="lnaa-main-text">
+          We are proud to support Lincs &amp; Notts Air Ambulance
+          and the life-saving work of their crews across
+          Lincolnshire and Nottinghamshire.
+        </p>
+
+        <p class="lnaa-secondary-text">
+          If you would like to support their work, you can make
+          a donation directly through the official LNAA website.
+        </p>
+
+
+        <div class="lnaa-buttons">
+
+          <a
+            href="https://www.ambucopter.org.uk/donate/form/"
+            class="lnaa-donate-button"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            DONATE TO LNAA
+          </a>
+
+          <a
+            href="https://www.ambucopter.org.uk/"
+            class="lnaa-website-button"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            VISIT LNAA WEBSITE
+          </a>
+
+        </div>
+
+
+        <p class="lnaa-charity-number">
+          Lincs &amp; Notts Air Ambulance
+          <span>Registered Charity No. 1017501</span>
+        </p>
+
+      </div>
+
     </section>
+
+
+    <!-- =========================
+         HERO
+         ========================= -->
+
+    <section class="home-hero">
+
+      <p class="kicker">
+        Premium Games • Assets • Community
+      </p>
+
+      <h2>
+        Building Bold Roleplay Experiences
+      </h2>
+
+      <p class="hero-copy">
+        We design and run immersive UK roleplay projects,
+        provide high-quality production assets, and support
+        a growing creator community.
+      </p>
+
+
+      <div class="hero-actions">
+
+        <a
+          class="view-btn"
+          href="/SRP/"
+        >
+          Explore UK:RP SRP
+        </a>
+
+        <a
+          class="ghost-btn"
+          href="/BP-Asset-Hub/Home"
+        >
+          Browse Asset Hub
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         STATS
+         ========================= -->
 
     <section class="home-stats">
-      <article><h3>24/7</h3><p>Community-focused support</p></article>
-      <article><h3>High Quality</h3><p>Production-grade assets</p></article>
-      <article><h3>Fast Updates</h3><p>Consistent feature improvements</p></article>
+
+      <article>
+        <h3>24/7</h3>
+        <p>
+          Community-focused support
+        </p>
+      </article>
+
+      <article>
+        <h3>High Quality</h3>
+        <p>
+          Production-grade assets
+        </p>
+      </article>
+
+      <article>
+        <h3>Fast Updates</h3>
+        <p>
+          Consistent feature improvements
+        </p>
+      </article>
+
     </section>
 
-    <section class="section-title"><h3>What We Offer</h3></section>
+
+    <!-- =========================
+         WHAT WE OFFER
+         ========================= -->
+
+    <section class="section-title">
+      <h3>
+        What We Offer
+      </h3>
+    </section>
+
+
     <section class="product-grid home-grid">
-      <article class="product-card">
-        <div class="product-content">
-          <h4>UK:RP SRP</h4>
-          <p>Our flagship UK roleplay experience set in Shirebrook with active systems and rich gameplay.</p>
-          <a href="/SRP/" class="view-btn">Open SRP</a>
-        </div>
-      </article>
+
+
+      <!-- UK:RP -->
 
       <article class="product-card">
+
         <div class="product-content">
-          <h4>Asset Hub</h4>
-          <p>Discover curated digital assets for creators, communities, and game server teams.</p>
-          <a href="/BP-Asset-Hub/Home" class="view-btn">View Assets</a>
+
+          <h4>
+            UK:RP SRP
+          </h4>
+
+          <p>
+            Our flagship UK roleplay experience set in
+            Shirebrook with active systems and rich gameplay.
+          </p>
+
+          <a
+            href="/SRP/"
+            class="view-btn"
+          >
+            Open SRP
+          </a>
+
         </div>
+
       </article>
 
+
+      <!-- ASSET HUB -->
+
       <article class="product-card">
+
         <div class="product-content">
-          <h4>Support & Contact</h4>
-          <p>Need help or have a question? Reach out to our team for quick and reliable assistance.</p>
-          <a href="/contact-us" class="view-btn">Get Support</a>
+
+          <h4>
+            Asset Hub
+          </h4>
+
+          <p>
+            Discover curated digital assets for creators,
+            communities, and game server teams.
+          </p>
+
+          <a
+            href="/BP-Asset-Hub/Home"
+            class="view-btn"
+          >
+            View Assets
+          </a>
+
         </div>
+
       </article>
+
+
+      <!-- SUPPORT -->
+
+      <article class="product-card">
+
+        <div class="product-content">
+
+          <h4>
+            Support &amp; Contact
+          </h4>
+
+          <p>
+            Need help or have a question?
+            Reach out to our team for quick and reliable assistance.
+          </p>
+
+          <a
+            href="/contact-us"
+            class="view-btn"
+          >
+            Get Support
+          </a>
+
+        </div>
+
+      </article>
+
+
     </section>
 
-    <section class="section-title"><h3>Trust & Policies</h3></section>
+
+    <!-- =========================
+         TRUST & POLICIES
+         ========================= -->
+
+    <section class="section-title">
+
+      <h3>
+        Trust &amp; Policies
+      </h3>
+
+    </section>
+
+
     <section class="home-policy-card">
-      <p>Read our privacy policy, terms, and platform rules to understand how we protect our users and keep our community safe.</p>
-      <a href="/policies/home" class="view-btn">Read Policies</a>
+
+      <p>
+        Read our privacy policy, terms, and platform rules
+        to understand how we protect our users and keep
+        our community safe.
+      </p>
+
+      <a
+        href="/policies/home"
+        class="view-btn"
+      >
+        Read Policies
+      </a>
+
     </section>
+
+
   </main>
 
+
+  <!-- =========================
+       COOKIE BANNER
+       ========================= -->
+
   <div id="cookie-banner">
+
     <div class="cookie-inner">
+
       <div class="cookie-text">
-        We use analytics cookies to understand how people use the site and improve it.
-        You can accept or decline. Read more in our
-        <a href="/policies/privacy-policy">Privacy Policy</a>.
+
+        We use analytics cookies to understand how people
+        use the site and improve it.
+
+        You can accept or decline.
+
+        Read more in our
+
+        <a href="/policies/privacy-policy">
+          Privacy Policy
+        </a>.
+
       </div>
+
+
       <div class="cookie-actions">
-        <button class="cookie-btn accept" onclick="acceptCookies()">Accept</button>
-        <button class="cookie-btn decline" onclick="declineCookies()">Decline</button>
+
+        <button
+          class="cookie-btn accept"
+          onclick="acceptCookies()"
+        >
+          Accept
+        </button>
+
+        <button
+          class="cookie-btn decline"
+          onclick="declineCookies()"
+        >
+          Decline
+        </button>
+
       </div>
+
     </div>
+
   </div>
-  
+
+
+  <!-- =========================
+       JAVASCRIPT
+       ========================= -->
+
   <script src="/js/cookies.js"></script>
   <script src="/js/main.js"></script>
+
 </body>
 </html>
