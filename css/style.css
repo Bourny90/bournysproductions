@@ -8,14 +8,27 @@
   --bg: #050505;
   --bg-soft: #121212;
   --card: rgba(22, 22, 22, 0.95);
+
   --accent: #ff2e2e;
   --accent-hover: #e72424;
+
   --text: #ffffff;
   --muted: #bdbdbd;
+
   --border: rgba(255, 255, 255, 0.08);
+
+  /* LNAA */
+  --lnaa-yellow: #ffd400;
+  --lnaa-yellow-hover: #ffe04a;
 }
 
-html, body {
+
+/* =========================================
+   GLOBAL
+   ========================================= */
+
+html,
+body {
   width: 100%;
   min-height: 100%;
 }
@@ -27,226 +40,1013 @@ body {
   overflow-x: hidden;
 }
 
+
+/* =========================================
+   PARTICLE BACKGROUND
+   ========================================= */
+
 #particle-canvas {
   position: fixed;
   inset: 0;
   z-index: -1;
-  background: radial-gradient(circle at top, #1a1a1a 0%, #050505 60%, #000 100%);
+
+  background:
+    radial-gradient(
+      circle at top,
+      #1a1a1a 0%,
+      #050505 60%,
+      #000 100%
+    );
 }
+
+
+/* =========================================
+   TOPBAR
+   ========================================= */
 
 .topbar {
   height: 58px;
+
   display: flex;
   align-items: center;
   gap: 14px;
+
   padding: 0 16px;
+
   background: rgba(9, 9, 9, 0.95);
+
   border-bottom: 1px solid var(--border);
+
   position: sticky;
   top: 0;
+
   z-index: 1000;
 }
 
-.topbar-title { font-size: 1.1rem; font-weight: 800; }
+.topbar-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+
+/* =========================================
+   MENU BUTTON
+   ========================================= */
 
 .menu-btn {
-  width: 40px; height: 40px; background: none; border: none;
-  display: flex; flex-direction: column; justify-content: center; gap: 5px; cursor: pointer;
+  width: 40px;
+  height: 40px;
+
+  background: none;
+  border: none;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 5px;
+
+  cursor: pointer;
 }
-.menu-btn span { width: 32px; height: 4px; border-radius: 999px; background: #fff; }
+
+.menu-btn span {
+  width: 32px;
+  height: 4px;
+
+  border-radius: 999px;
+
+  background: #fff;
+}
+
+
+/* =========================================
+   SIDEBAR
+   ========================================= */
 
 .sidebar {
-  position: fixed; top: 58px; left: -240px; width: 220px; height: calc(100% - 58px);
-  background: rgba(10, 10, 10, 0.98); border-right: 1px solid var(--border);
-  padding: 20px 14px; display: flex; flex-direction: column; gap: 10px;
-  transition: 0.25s ease; z-index: 1001;
-}
-.sidebar.show { left: 0; }
-.sidebar a {
-  color: #fff; text-decoration: none; padding: 12px; border-radius: 10px;
-  background: rgba(255, 255, 255, 0.03); transition: 0.2s;
-}
-.sidebar a:hover { background: rgba(255, 45, 45, 0.14); }
+  position: fixed;
 
-.page { padding: 40px 16px 70px; }
-.home-page { max-width: 1180px; margin: 0 auto; }
+  top: 58px;
+  left: -240px;
+
+  width: 220px;
+  height: calc(100% - 58px);
+
+  background: rgba(10, 10, 10, 0.98);
+
+  border-right: 1px solid var(--border);
+
+  padding: 20px 14px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+
+  transition: 0.25s ease;
+
+  z-index: 1001;
+}
+
+.sidebar.show {
+  left: 0;
+}
+
+.sidebar a {
+  color: #fff;
+
+  text-decoration: none;
+
+  padding: 12px;
+
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.03);
+
+  transition: 0.2s;
+}
+
+.sidebar a:hover {
+  background: rgba(255, 45, 45, 0.14);
+}
+
+
+/* =========================================
+   PAGE
+   ========================================= */
+
+.page {
+  padding: 40px 16px 70px;
+}
+
+.home-page {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+
+/* =========================================
+   LNAA FEATURE
+   ========================================= */
+
+.lnaa-feature {
+  position: relative;
+
+  max-width: 1180px;
+
+  margin: 0 auto 34px;
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+
+  gap: 50px;
+
+  padding: 42px;
+
+  border-radius: 26px;
+
+  border: 1px solid rgba(255, 212, 0, 0.28);
+
+  background:
+    radial-gradient(
+      circle at 10% 30%,
+      rgba(255, 212, 0, 0.14),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(255, 30, 30, 0.08),
+      transparent 35%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(25, 25, 25, 0.98),
+      rgba(7, 7, 7, 0.98)
+    );
+
+  box-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.5),
+    0 0 45px rgba(255, 212, 0, 0.06);
+}
+
+
+/* Yellow/red top stripe */
+
+.lnaa-feature::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 5px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ffd400 0%,
+      #ffd400 45%,
+      #e5242b 55%,
+      #e5242b 100%
+    );
+}
+
+
+/* Decorative glow */
+
+.lnaa-feature-glow {
+  position: absolute;
+
+  width: 350px;
+  height: 350px;
+
+  top: -200px;
+  right: -120px;
+
+  background: rgba(255, 212, 0, 0.08);
+
+  filter: blur(70px);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+
+/* Logo */
+
+.lnaa-logo-container {
+  position: relative;
+
+  flex: 0 0 250px;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.lnaa-logo {
+  width: 100%;
+  max-width: 250px;
+
+  height: auto;
+
+  object-fit: contain;
+
+  display: block;
+
+  filter: drop-shadow(
+    0 10px 20px rgba(0, 0, 0, 0.35)
+  );
+}
+
+
+/* Text */
+
+.lnaa-feature-content {
+  position: relative;
+
+  flex: 1;
+}
+
+.lnaa-label {
+  display: inline-block;
+
+  margin-bottom: 9px;
+
+  color: var(--lnaa-yellow);
+
+  font-size: 0.78rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.13em;
+}
+
+.lnaa-feature-content h2 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+
+  line-height: 1.08;
+
+  margin-bottom: 15px;
+}
+
+.lnaa-main-text {
+  max-width: 720px;
+
+  color: #eeeeee;
+
+  line-height: 1.65;
+
+  font-size: 1.02rem;
+}
+
+.lnaa-secondary-text {
+  max-width: 720px;
+
+  margin-top: 10px;
+
+  color: #a9a9a9;
+
+  line-height: 1.6;
+
+  font-size: 0.93rem;
+}
+
+
+/* Buttons */
+
+.lnaa-buttons {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  margin-top: 25px;
+}
+
+.lnaa-donate-button,
+.lnaa-website-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 52px;
+
+  padding: 14px 28px;
+
+  border-radius: 11px;
+
+  text-decoration: none;
+
+  font-weight: 800;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+/* Donate */
+
+.lnaa-donate-button {
+  color: #111;
+
+  background: var(--lnaa-yellow);
+
+  box-shadow:
+    0 8px 24px rgba(255, 212, 0, 0.18);
+}
+
+.lnaa-donate-button:hover {
+  background: var(--lnaa-yellow-hover);
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 12px 30px rgba(255, 212, 0, 0.28);
+}
+
+
+/* Website */
+
+.lnaa-website-button {
+  color: #fff;
+
+  background: rgba(255, 255, 255, 0.04);
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.lnaa-website-button:hover {
+  background: rgba(255, 255, 255, 0.09);
+
+  border-color: rgba(255, 212, 0, 0.5);
+
+  transform: translateY(-3px);
+}
+
+
+/* Charity number */
+
+.lnaa-charity-number {
+  margin-top: 17px;
+
+  color: #7e7e7e;
+
+  font-size: 0.76rem;
+}
+
+.lnaa-charity-number span {
+  margin-left: 7px;
+}
+
+
+/* =========================================
+   MAIN HERO
+   ========================================= */
 
 .home-hero {
   padding: 70px 24px;
+
   border: 1px solid var(--border);
+
   border-radius: 24px;
-  background: linear-gradient(145deg, rgba(255, 25, 25, 0.15), rgba(15, 15, 15, 0.96));
-  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.5);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 25, 25, 0.15),
+      rgba(15, 15, 15, 0.96)
+    );
+
+  box-shadow:
+    0 16px 45px rgba(0, 0, 0, 0.5);
+
   text-align: center;
 }
 
 .kicker {
   color: #ff7a7a;
+
   letter-spacing: 0.08em;
+
   text-transform: uppercase;
+
   font-weight: 700;
+
   font-size: 0.82rem;
 }
 
 .home-hero h2 {
   font-size: clamp(2.2rem, 6vw, 4.4rem);
+
   margin: 14px 0;
 }
 
 .hero-copy {
   max-width: 760px;
+
   margin: 0 auto;
+
   color: #e4e4e4;
+
   line-height: 1.65;
 }
 
+
+/* =========================================
+   HERO BUTTONS
+   ========================================= */
+
 .hero-actions {
   margin-top: 26px;
+
   display: flex;
+
   justify-content: center;
+
   gap: 14px;
+
   flex-wrap: wrap;
 }
 
+
+/* =========================================
+   STATS
+   ========================================= */
+
 .home-stats {
   margin: 28px 0 16px;
+
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
   gap: 16px;
 }
 
 .home-stats article {
   background: var(--card);
+
   border: 1px solid var(--border);
+
   border-radius: 18px;
+
   padding: 20px;
+
   text-align: center;
 }
 
-.home-stats h3 { color: #ff5f5f; margin-bottom: 8px; font-size: 1.5rem; }
-.home-stats p { color: var(--muted); }
+.home-stats h3 {
+  color: #ff5f5f;
 
-.section-title { max-width: 1000px; margin: 52px auto 30px; text-align: center; }
+  margin-bottom: 8px;
+
+  font-size: 1.5rem;
+}
+
+.home-stats p {
+  color: var(--muted);
+}
+
+
+/* =========================================
+   SECTION TITLES
+   ========================================= */
+
+.section-title {
+  max-width: 1000px;
+
+  margin: 52px auto 30px;
+
+  text-align: center;
+}
+
 .section-title h3 {
   font-size: clamp(1.9rem, 4vw, 3rem);
+
   font-weight: 800;
+
   position: relative;
+
   display: inline-block;
 }
+
 .section-title h3::after {
   content: "";
+
   width: 90px;
+
   height: 3px;
+
   margin: 12px auto 0;
+
   display: block;
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--accent),
+      transparent
+    );
 }
 
-.product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+/* =========================================
+   PRODUCT GRID
+   ========================================= */
+
+.product-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 24px;
+}
+
 .product-card {
   background: var(--card);
+
   border-radius: 16px;
+
   border: 1px solid var(--border);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
+
 .product-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.5), 0 0 20px rgba(255, 34, 34, 0.14);
-}
-.product-content { text-align: center; padding: 26px 20px; }
-.product-content h4 { margin-bottom: 8px; font-size: 1.4rem; }
-.product-content p { color: var(--muted); margin-bottom: 16px; line-height: 1.55; }
 
-.view-btn, .ghost-btn {
+  box-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(255, 34, 34, 0.14);
+}
+
+.product-content {
+  text-align: center;
+
+  padding: 26px 20px;
+}
+
+.product-content h4 {
+  margin-bottom: 8px;
+
+  font-size: 1.4rem;
+}
+
+.product-content p {
+  color: var(--muted);
+
+  margin-bottom: 16px;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================
+   GENERAL BUTTONS
+   ========================================= */
+
+.view-btn,
+.ghost-btn {
   display: inline-block;
+
   text-decoration: none;
+
   padding: 11px 22px;
+
   border-radius: 10px;
+
   font-weight: 700;
+
   transition: 0.2s;
 }
-.view-btn { background: var(--accent); color: #fff; }
-.view-btn:hover { background: var(--accent-hover); transform: translateY(-2px); }
-.ghost-btn { border: 1px solid rgba(255,255,255,0.2); color: #fff; }
-.ghost-btn:hover { border-color: #ff4a4a; background: rgba(255, 60, 60, 0.12); }
+
+.view-btn {
+  background: var(--accent);
+
+  color: #fff;
+}
+
+.view-btn:hover {
+  background: var(--accent-hover);
+
+  transform: translateY(-2px);
+}
+
+.ghost-btn {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  color: #fff;
+}
+
+.ghost-btn:hover {
+  border-color: #ff4a4a;
+
+  background: rgba(255, 60, 60, 0.12);
+}
+
+
+/* =========================================
+   POLICY CARD
+   ========================================= */
 
 .home-policy-card {
   display: flex;
+
   justify-content: space-between;
+
   align-items: center;
+
   gap: 24px;
+
   flex-wrap: wrap;
-  background: linear-gradient(145deg, rgba(255, 42, 42, 0.14), rgba(16, 16, 16, 0.95));
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 42, 42, 0.14),
+      rgba(16, 16, 16, 0.95)
+    );
+
   border: 1px solid var(--border);
+
   border-radius: 16px;
+
   padding: 22px;
 }
-.home-policy-card p { max-width: 760px; color: #e0e0e0; line-height: 1.6; }
 
-#cookie-banner {
-  position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
-  width: calc(100% - 30px); max-width: 900px; background: rgba(18, 18, 18, 0.96);
-  color: #fff; border: 1px solid var(--border); border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45); padding: 16px; display: none; z-index: 9999;
-}
-.cookie-inner { display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
-.cookie-text { color: #ddd; line-height: 1.5; }
-.cookie-text a { color: #ff6464; font-weight: 700; }
-.cookie-actions { display: flex; gap: 10px; }
-.cookie-btn {
-  border: none; border-radius: 10px; padding: 10px 16px; color: #fff; font-weight: 700; cursor: pointer;
-}
-.cookie-btn.accept { background: var(--accent); }
-.cookie-btn.decline { background: rgba(255, 255, 255, 0.14); }
-
-@media (max-width: 1000px) {
-  .product-grid, .home-stats { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 700px) {
-  .product-grid, .home-stats { grid-template-columns: 1fr; }
-  .home-hero { padding: 44px 16px; }
-}
-/* Shared interior page system */
-.page-shell { max-width: 1120px; margin: 0 auto; }
-.hero-simple {
-  text-align: center;
-  padding: 90px 20px 28px;
-}
-.hero-simple h2 {
-  font-size: clamp(2.1rem, 5vw, 4rem);
-  margin-bottom: 10px;
-}
-.hero-simple p {
+.home-policy-card p {
   max-width: 760px;
-  margin: 0 auto;
-  color: #d3d3d3;
+
+  color: #e0e0e0;
+
   line-height: 1.6;
 }
-.back-wrap { display:flex; justify-content:center; margin: 10px 0 40px; }
+
+
+/* =========================================
+   COOKIE BANNER
+   ========================================= */
+
+#cookie-banner {
+  position: fixed;
+
+  bottom: 20px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: calc(100% - 30px);
+
+  max-width: 900px;
+
+  background: rgba(18, 18, 18, 0.96);
+
+  color: #fff;
+
+  border: 1px solid var(--border);
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.45);
+
+  padding: 16px;
+
+  display: none;
+
+  z-index: 9999;
+}
+
+.cookie-inner {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 14px;
+
+  flex-wrap: wrap;
+}
+
+.cookie-text {
+  color: #ddd;
+
+  line-height: 1.5;
+}
+
+.cookie-text a {
+  color: #ff6464;
+
+  font-weight: 700;
+}
+
+.cookie-actions {
+  display: flex;
+
+  gap: 10px;
+}
+
+.cookie-btn {
+  border: none;
+
+  border-radius: 10px;
+
+  padding: 10px 16px;
+
+  color: #fff;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.cookie-btn.accept {
+  background: var(--accent);
+}
+
+.cookie-btn.decline {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+
+/* =========================================
+   SHARED INTERIOR PAGE SYSTEM
+   ========================================= */
+
+.page-shell {
+  max-width: 1120px;
+
+  margin: 0 auto;
+}
+
+.hero-simple {
+  text-align: center;
+
+  padding: 90px 20px 28px;
+}
+
+.hero-simple h2 {
+  font-size: clamp(2.1rem, 5vw, 4rem);
+
+  margin-bottom: 10px;
+}
+
+.hero-simple p {
+  max-width: 760px;
+
+  margin: 0 auto;
+
+  color: #d3d3d3;
+
+  line-height: 1.6;
+}
+
+.back-wrap {
+  display: flex;
+
+  justify-content: center;
+
+  margin: 10px 0 40px;
+}
+
 .back-btn {
   display: inline-block;
+
   text-decoration: none;
+
   color: #fff;
+
   padding: 11px 24px;
+
   border-radius: 10px;
+
   font-weight: 700;
-  background: linear-gradient(135deg, #991010, #e12a2a);
-  border: 1px solid rgba(255,255,255,0.08);
+
+  background:
+    linear-gradient(
+      135deg,
+      #991010,
+      #e12a2a
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
-.back-btn:hover { filter: brightness(1.08); transform: translateY(-1px); }
-.info-stack { display:grid; gap: 16px; max-width: 980px; margin: 0 auto 38px; }
+
+.back-btn:hover {
+  filter: brightness(1.08);
+
+  transform: translateY(-1px);
+}
+
+.info-stack {
+  display: grid;
+
+  gap: 16px;
+
+  max-width: 980px;
+
+  margin: 0 auto 38px;
+}
+
 .info-block {
   background: var(--card);
+
   border: 1px solid var(--border);
+
   border-left: 4px solid var(--accent);
+
   border-radius: 12px;
+
   padding: 18px;
 }
-.info-block h4 { margin-bottom: 8px; font-size: 1.12rem; }
-.info-block p { color: #d9d9d9; line-height: 1.6; white-space: pre-line; }
-.content-grid { margin-top: 20px; }
-.footer-note { text-align:center; color: var(--muted); margin-top: 30px; }
+
+.info-block h4 {
+  margin-bottom: 8px;
+
+  font-size: 1.12rem;
+}
+
+.info-block p {
+  color: #d9d9d9;
+
+  line-height: 1.6;
+
+  white-space: pre-line;
+}
+
+.content-grid {
+  margin-top: 20px;
+}
+
+.footer-note {
+  text-align: center;
+
+  color: var(--muted);
+
+  margin-top: 30px;
+}
+
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 1000px) {
+
+  .product-grid,
+  .home-stats {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+
+  .lnaa-feature {
+    gap: 30px;
+
+    padding: 34px;
+  }
+
+  .lnaa-logo-container {
+    flex-basis: 210px;
+  }
+
+  .lnaa-logo {
+    max-width: 210px;
+  }
+
+}
+
+
 @media (max-width: 700px) {
-  .hero-simple { padding: 70px 12px 20px; }
+
+  .product-grid,
+  .home-stats {
+    grid-template-columns: 1fr;
+  }
+
+
+  .home-hero {
+    padding: 44px 16px;
+  }
+
+
+  /* LNAA mobile */
+
+  .lnaa-feature {
+    flex-direction: column;
+
+    text-align: center;
+
+    gap: 24px;
+
+    padding: 36px 20px;
+
+    border-radius: 20px;
+  }
+
+  .lnaa-logo-container {
+    flex: none;
+
+    width: 100%;
+  }
+
+  .lnaa-logo {
+    max-width: 190px;
+
+    margin: 0 auto;
+  }
+
+  .lnaa-feature-content h2 {
+    font-size: 2rem;
+  }
+
+  .lnaa-main-text,
+  .lnaa-secondary-text {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .lnaa-buttons {
+    flex-direction: column;
+
+    width: 100%;
+  }
+
+  .lnaa-donate-button,
+  .lnaa-website-button {
+    width: 100%;
+  }
+
+  .lnaa-charity-number span {
+    display: block;
+
+    margin: 5px 0 0;
+  }
+
+
+  /* Interior pages */
+
+  .hero-simple {
+    padding: 70px 12px 20px;
+  }
+
 }
